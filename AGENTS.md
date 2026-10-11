@@ -22,6 +22,15 @@
 - 평가와 독립 검산을 함께 마친 뒤 통과·반려를 판정한다. 항목별로 `Y - 통과` 또는 `N - 반려`를 쓰며, 모든 항목이 Y일 때만 통과한다. 첫 평가부터 동일한 기준을 적용하고 모든 반려 사유를 한 번에 전달한다. 검사를 끝내지 못했으면 미완료로 구분한다. N이 있으면 문제 위치와 수정 요청을 기록하고 수정 후 전 항목을 재검사한다.
 - 반려 후 재검사는 `제안서·견적서 — 반려 사항 수정 후 재검사`로 구분하고 이전 초안 대비 변경과 미해결 이슈를 남긴다. 실행하지 않은 검사를 완료로 기록하지 않는다.
 
+### 검산 스크립트
+
+- 경로: [artifacts/scripts/verify_quote_performance.py](artifacts/scripts/verify_quote_performance.py). 입력 형식과 계산 규칙은 [artifacts/scripts/README.md](artifacts/scripts/README.md)를 따른다.
+- 계산이 필요한 평가·재평가마다 이 스크립트를 재사용한다. 이전 라운드의 입력을 복사하지 않고, 현재 평가 대상 초안의 값과 브리프·사규 조건으로 입력 JSON을 새로 만든다.
+- 입력 형식: JSON의 `conditions`에는 브리프·사규의 수수료율·VAT율·판매가·구매당 수량·월 청구 예산·계약 총액·월별 매체 CPC·CVR을, `document`에는 초안의 표시 자릿수, 월별 견적·매체 배분·매체별 및 월 합계 성과, 계약 합계, 계약 누적 성과를 적는다. 초안에 없는 값은 비워 둔다.
+- 실행: 프로젝트 루트에서 `python3 artifacts/scripts/verify_quote_performance.py --input artifacts/rounds/r{N}/verification-input.json --json-out artifacts/rounds/r{N}/verification-result.json`. 종료 코드 0은 모든 검산 일치, 1은 불일치·누락·계산 불가·확인 필요 있음, 2는 입력 오류다.
+- 실행 근거는 해당 라운드 `evaluation.md`의 ‘견적·성과 독립 검산’에 스크립트 경로·실행 명령·입력 파일·종료 코드·검사 수와 불일치 항목으로 남긴다. 스크립트를 실행하지 못했거나 일부 수치를 검산하지 못했으면 판정을 미완료로 기록한다.
+- 스크립트를 수정하면 `python3 -m unittest artifacts/scripts/test_verify_quote_performance.py`로 다시 확인한다. 코드에 특정 고객의 수치나 정답을 넣지 않는다.
+
 ## 산출물과 저장
 
 - 파일명·저장 위치와 라운드 번호는 README의 문서 저장 규칙을 따른다. 원자료·양식·샘플과 평가받은 초안·이전 라운드를 보존한다. 제안과 견적은 한 초안으로 완성하고, 수정 전후 내역은 고객 본문이 아닌 해당 라운드 평가에 기록한다.
@@ -45,3 +54,4 @@
 - 평가 기록 샘플: [evaluation-sample.md](references/samples/evaluation-sample.md)
 - 작성 예시: [references/samples/](references/samples/)
 - 요구사항·검사 기록: [artifacts/rules/](artifacts/rules/), [artifacts/rounds/](artifacts/rounds/) — 작업 중 생성
+- 검산 스크립트: [artifacts/scripts/](artifacts/scripts/)

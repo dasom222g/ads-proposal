@@ -17,7 +17,8 @@ ads-proposal/
 ├── prompts/             # 전체 루프 실행 프롬프트
 └── artifacts/           # 에이전트 산출물
     ├── rules/           # 요구사항·평가 기준
-    ├── rounds/          # 라운드별 초안·평가·수정 요청
+    ├── scripts/         # 금액·예상 성과 검산 스크립트와 동작 확인 테스트
+    ├── rounds/          # 라운드별 초안·평가·검산 입력과 결과·수정 요청
     └── final/           # 최종 제안서·교차 검토 보고서
 ```
 
@@ -43,8 +44,11 @@ ads-proposal/
 | --- | --- |
 | 요구사항 정의서 | `artifacts/rules/requirements.md` |
 | 평가 체크리스트 | `artifacts/rules/evaluation-checklist.md` |
+| 검산 스크립트 | `artifacts/scripts/verify_quote_performance.py` |
+| 검산 스크립트 입력 형식·동작 확인 | `artifacts/scripts/README.md`, `artifacts/scripts/test_verify_quote_performance.py` |
 | 제안·견적 초안 | `artifacts/rounds/r{N}/draft.md` |
 | 평가·검산·수정 전후 내역 | `artifacts/rounds/r{N}/evaluation.md` |
+| 검산 입력·결과 | `artifacts/rounds/r{N}/verification-input.json`, `artifacts/rounds/r{N}/verification-result.json` |
 | 반려 사유·수정 요청 | `artifacts/rounds/r{N}/revision-request.md` |
 | 최종 제안서·견적 포함 | `artifacts/final/proposal-quote.md` |
 | 최종 제안서 HTML | `artifacts/final/proposal-quote.html` |
@@ -53,7 +57,7 @@ ads-proposal/
 
 ## 검토 기준
 
-확정한 체크리스트의 모든 항목에 원문 위치·판정 근거를 남기고, 견적과 예상 성과를 독립적으로 재계산합니다. 통과 수는 Y인 항목 수/전체 항목 수로 기록합니다. 모든 항목을 충족하고 검산을 마친 문서만 최종본으로 확정합니다.
+확정한 체크리스트의 모든 항목에 원문 위치·판정 근거를 남기고, 견적과 예상 성과를 독립적으로 재계산합니다. 재계산은 [검산 스크립트](artifacts/scripts/README.md)를 평가 대상 초안의 값으로 실행하고 실행 근거를 해당 라운드 평가에 남깁니다. 통과 수는 Y인 항목 수/전체 항목 수로 기록합니다. 모든 항목을 충족하고 검산을 마친 문서만 최종본으로 확정합니다.
 
 평가 기록에는 실제 사용 입력·양식·요구사항·체크리스트·초안의 문서명·경로와 평가 대상 라운드를 남깁니다. 최종본은 이번 작업에서 통과한 초안으로만 갱신합니다. 이번 작업이 반려·미완료라면 이전 최종본을 이번 통과 결과로 표시하지 않습니다. 수정 내역은 고객 본문과 분리합니다.
 

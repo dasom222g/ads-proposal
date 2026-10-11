@@ -7,3 +7,15 @@ configs/*.local.*
 playwright-report/
 test-results/
 .auth/
+
+# Local generated files
+__pycache__/
+*.py[cod]
+outputs/
+logs/
+screenshots/
+traces/
+sessions/
+playwright/.auth/
+playwright/.cache/
+blob-report/

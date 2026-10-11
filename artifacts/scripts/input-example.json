@@ -1,0 +1,168 @@
+{
+  "label": "가상 예시 입력(특정 고객 수치 아님)",
+  "conditions": {
+    "fee_rate_percent": "10",
+    "vat_rate_percent": "10",
+    "unit_price": "30,000",
+    "units_per_purchase": 1,
+    "contract_total_budget": "2,420,000",
+    "months": [
+      {
+        "month": "M1",
+        "billing_budget": "1,210,000",
+        "assumptions": [
+          {
+            "media": "A",
+            "cpc": "500",
+            "cvr_percent": "2"
+          },
+          {
+            "media": "B",
+            "cpc": "400",
+            "cvr_percent": "1.5"
+          }
+        ]
+      },
+      {
+        "month": "M2",
+        "billing_budget": "1,210,000",
+        "assumptions": [
+          {
+            "media": "A",
+            "cpc": "500",
+            "cvr_percent": "3"
+          },
+          {
+            "media": "B",
+            "cpc": "300",
+            "cvr_percent": "2"
+          }
+        ]
+      }
+    ]
+  },
+  "document": {
+    "display": {
+      "clicks_decimals": 2,
+      "revenue_decimals": 0,
+      "ratio_percent_decimals": 1
+    },
+    "months": [
+      {
+        "month": "M1",
+        "quote": {
+          "net_media": "1,000,000",
+          "fee": "100,000",
+          "supply": "1,100,000",
+          "vat": "110,000",
+          "billing": "1,210,000"
+        },
+        "allocation": [
+          {
+            "name": "A",
+            "net_media": "600,000",
+            "ratio_percent": "60.0"
+          },
+          {
+            "name": "B",
+            "net_media": "400,000",
+            "ratio_percent": "40.0"
+          }
+        ],
+        "media": [
+          {
+            "net_media": "600,000",
+            "clicks": "1,200",
+            "conversions": "24",
+            "revenue": "720,000",
+            "cpa": "25,000",
+            "roas_percent": "120.0",
+            "media": "A"
+          },
+          {
+            "net_media": "400,000",
+            "clicks": "1,000",
+            "conversions": "15",
+            "revenue": "450,000",
+            "cpa": "26,667",
+            "roas_percent": "112.5",
+            "media": "B"
+          }
+        ],
+        "total": {
+          "net_media": "1,000,000",
+          "clicks": "2,200",
+          "conversions": "39",
+          "revenue": "1,170,000",
+          "cpa": "25,641",
+          "roas_percent": "117.0"
+        }
+      },
+      {
+        "month": "M2",
+        "quote": {
+          "net_media": "1,000,000",
+          "fee": "100,000",
+          "supply": "1,100,000",
+          "vat": "110,000",
+          "billing": "1,210,000"
+        },
+        "allocation": [
+          {
+            "name": "A",
+            "net_media": "700,000",
+            "ratio_percent": "70.0"
+          },
+          {
+            "name": "B",
+            "net_media": "300,000",
+            "ratio_percent": "30.0"
+          }
+        ],
+        "media": [
+          {
+            "net_media": "700,000",
+            "clicks": "1,400",
+            "conversions": "42",
+            "revenue": "1,260,000",
+            "cpa": "16,667",
+            "roas_percent": "180.0",
+            "media": "A"
+          },
+          {
+            "net_media": "300,000",
+            "clicks": "1,000",
+            "conversions": "20",
+            "revenue": "600,000",
+            "cpa": "15,000",
+            "roas_percent": "200.0",
+            "media": "B"
+          }
+        ],
+        "total": {
+          "net_media": "1,000,000",
+          "clicks": "2,400",
+          "conversions": "62",
+          "revenue": "1,860,000",
+          "cpa": "16,129",
+          "roas_percent": "186.0"
+        }
+      }
+    ],
+    "contract_quote": {
+      "net_media": "2,000,000",
+      "fee": "200,000",
+      "supply": "2,200,000",
+      "vat": "220,000",
+      "billing": "2,420,000"
+    },
+    "cumulative": {
+      "net_media": "2,000,000",
+      "clicks": "4,600",
+      "conversions": "101",
+      "revenue": "3,030,000",
+      "cpa": "19,802",
+      "roas_percent": "151.5"
+    }
+  }
+}
