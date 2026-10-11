@@ -1,0 +1,900 @@
+{
+  "label": "r2 draft.md 검산 (artifacts/rounds/r2/draft.md, 기준 movepet-checklist-v1)",
+  "passed": true,
+  "counts": {
+    "일치": 99
+  },
+  "checks": [
+    {
+      "section": "1개월차 견적",
+      "item": "순매체비(예산 역산)",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "월 청구 예산 3,000,000원을 만족하는 유일한 정수 순매체비"
+    },
+    {
+      "section": "1개월차 견적",
+      "item": "수수료",
+      "status": "일치",
+      "document": "355,731",
+      "computed": "355,731",
+      "unrounded": "355,731.3",
+      "note": ""
+    },
+    {
+      "section": "1개월차 견적",
+      "item": "공급가액",
+      "status": "일치",
+      "document": "2,727,273",
+      "computed": "2,727,273",
+      "unrounded": "2,727,273",
+      "note": ""
+    },
+    {
+      "section": "1개월차 견적",
+      "item": "VAT",
+      "status": "일치",
+      "document": "272,727",
+      "computed": "272,727",
+      "unrounded": "272,727.3",
+      "note": ""
+    },
+    {
+      "section": "1개월차 견적",
+      "item": "청구 총액",
+      "status": "일치",
+      "document": "3,000,000",
+      "computed": "3,000,000",
+      "unrounded": "3,000,000",
+      "note": ""
+    },
+    {
+      "section": "1개월차 견적",
+      "item": "청구 총액과 월 예산",
+      "status": "일치",
+      "document": "3,000,000",
+      "computed": "3,000,000",
+      "unrounded": "-",
+      "note": "재계산 청구액이 브리프 월 청구 예산과 같은지"
+    },
+    {
+      "section": "1개월차 배분",
+      "item": "네이버 비율(%)",
+      "status": "일치",
+      "document": "60",
+      "computed": "60",
+      "unrounded": "60.0031540660…",
+      "note": "매체 금액÷문서 월 순매체비×100"
+    },
+    {
+      "section": "1개월차 배분",
+      "item": "메타 비율(%)",
+      "status": "일치",
+      "document": "40",
+      "computed": "40",
+      "unrounded": "39.9968459339…",
+      "note": "매체 금액÷문서 월 순매체비×100"
+    },
+    {
+      "section": "1개월차 배분",
+      "item": "매체 금액 합계",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "구성 매체(소계 행 제외) 금액 합계와 문서 월 순매체비 비교"
+    },
+    {
+      "section": "1개월차 배분",
+      "item": "표시 비율 합계(%)",
+      "status": "일치",
+      "document": "100",
+      "computed": "100",
+      "unrounded": "-",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 네이버 검색·GFA",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "1,423,000",
+      "computed": "1,423,000",
+      "unrounded": "1,423,000",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 네이버 검색·GFA",
+      "item": "클릭",
+      "status": "일치",
+      "document": "2,846",
+      "computed": "2,846",
+      "unrounded": "2,846",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 네이버 검색·GFA",
+      "item": "전환",
+      "status": "일치",
+      "document": "85.38",
+      "computed": "85.38",
+      "unrounded": "85.38",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 네이버 검색·GFA",
+      "item": "매출",
+      "status": "일치",
+      "document": "3,329,820",
+      "computed": "3,329,820",
+      "unrounded": "3,329,820",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 네이버 검색·GFA",
+      "item": "CPA",
+      "status": "일치",
+      "document": "16,667",
+      "computed": "16,667",
+      "unrounded": "16,666.6666666666…",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 네이버 검색·GFA",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "234",
+      "computed": "234",
+      "unrounded": "234",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 메타 피드·스토리",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "948,542",
+      "computed": "948,542",
+      "unrounded": "948,542",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 메타 피드·스토리",
+      "item": "클릭",
+      "status": "일치",
+      "document": "2,371.36",
+      "computed": "2,371.36",
+      "unrounded": "2,371.355",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 메타 피드·스토리",
+      "item": "전환",
+      "status": "일치",
+      "document": "23.71",
+      "computed": "23.71",
+      "unrounded": "23.71355",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 메타 피드·스토리",
+      "item": "매출",
+      "status": "일치",
+      "document": "924,828",
+      "computed": "924,828",
+      "unrounded": "924,828.45",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 메타 피드·스토리",
+      "item": "CPA",
+      "status": "일치",
+      "document": "40,000",
+      "computed": "40,000",
+      "unrounded": "40,000",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 메타 피드·스토리",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "97.5",
+      "computed": "97.5",
+      "unrounded": "97.5",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "클릭",
+      "status": "일치",
+      "document": "5,217.36",
+      "computed": "5,217.36",
+      "unrounded": "5,217.355",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "전환",
+      "status": "일치",
+      "document": "109.09",
+      "computed": "109.09",
+      "unrounded": "109.09355",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "매출",
+      "status": "일치",
+      "document": "4,254,648",
+      "computed": "4,254,648",
+      "unrounded": "4,254,648.45",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "CPA",
+      "status": "일치",
+      "document": "21,739",
+      "computed": "21,739",
+      "unrounded": "21,738.6087445133…",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "179.4",
+      "computed": "179.4",
+      "unrounded": "179.4043053000…",
+      "note": ""
+    },
+    {
+      "section": "1개월차 성과 · 월 합계",
+      "item": "성과 순매체비와 견적 순매체비",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "성과 계산 순매체비 합계가 견적 월 순매체비와 같은지"
+    },
+    {
+      "section": "2개월차 견적",
+      "item": "순매체비(예산 역산)",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "월 청구 예산 3,000,000원을 만족하는 유일한 정수 순매체비"
+    },
+    {
+      "section": "2개월차 견적",
+      "item": "수수료",
+      "status": "일치",
+      "document": "355,731",
+      "computed": "355,731",
+      "unrounded": "355,731.3",
+      "note": ""
+    },
+    {
+      "section": "2개월차 견적",
+      "item": "공급가액",
+      "status": "일치",
+      "document": "2,727,273",
+      "computed": "2,727,273",
+      "unrounded": "2,727,273",
+      "note": ""
+    },
+    {
+      "section": "2개월차 견적",
+      "item": "VAT",
+      "status": "일치",
+      "document": "272,727",
+      "computed": "272,727",
+      "unrounded": "272,727.3",
+      "note": ""
+    },
+    {
+      "section": "2개월차 견적",
+      "item": "청구 총액",
+      "status": "일치",
+      "document": "3,000,000",
+      "computed": "3,000,000",
+      "unrounded": "3,000,000",
+      "note": ""
+    },
+    {
+      "section": "2개월차 견적",
+      "item": "청구 총액과 월 예산",
+      "status": "일치",
+      "document": "3,000,000",
+      "computed": "3,000,000",
+      "unrounded": "-",
+      "note": "재계산 청구액이 브리프 월 청구 예산과 같은지"
+    },
+    {
+      "section": "2개월차 배분",
+      "item": "네이버 비율(%)",
+      "status": "일치",
+      "document": "50",
+      "computed": "50",
+      "unrounded": "50",
+      "note": "매체 금액÷문서 월 순매체비×100"
+    },
+    {
+      "section": "2개월차 배분",
+      "item": "메타 비율(%)",
+      "status": "일치",
+      "document": "50",
+      "computed": "50",
+      "unrounded": "50",
+      "note": "매체 금액÷문서 월 순매체비×100"
+    },
+    {
+      "section": "2개월차 배분",
+      "item": "매체 금액 합계",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "구성 매체(소계 행 제외) 금액 합계와 문서 월 순매체비 비교"
+    },
+    {
+      "section": "2개월차 배분",
+      "item": "표시 비율 합계(%)",
+      "status": "일치",
+      "document": "100",
+      "computed": "100",
+      "unrounded": "-",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 네이버 검색·GFA",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "1,185,771",
+      "computed": "1,185,771",
+      "unrounded": "1,185,771",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 네이버 검색·GFA",
+      "item": "클릭",
+      "status": "일치",
+      "document": "2,371.54",
+      "computed": "2,371.54",
+      "unrounded": "2,371.542",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 네이버 검색·GFA",
+      "item": "전환",
+      "status": "일치",
+      "document": "83",
+      "computed": "83",
+      "unrounded": "83.00397",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 네이버 검색·GFA",
+      "item": "매출",
+      "status": "일치",
+      "document": "3,237,155",
+      "computed": "3,237,155",
+      "unrounded": "3,237,154.83",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 네이버 검색·GFA",
+      "item": "CPA",
+      "status": "일치",
+      "document": "14,286",
+      "computed": "14,286",
+      "unrounded": "14,285.7142857142…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 네이버 검색·GFA",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "273",
+      "computed": "273",
+      "unrounded": "273",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 메타 피드·스토리",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "1,185,771",
+      "computed": "1,185,771",
+      "unrounded": "1,185,771",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 메타 피드·스토리",
+      "item": "클릭",
+      "status": "일치",
+      "document": "3,387.92",
+      "computed": "3,387.92",
+      "unrounded": "3,387.9171428571…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 메타 피드·스토리",
+      "item": "전환",
+      "status": "일치",
+      "document": "50.82",
+      "computed": "50.82",
+      "unrounded": "50.8187571428…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 메타 피드·스토리",
+      "item": "매출",
+      "status": "일치",
+      "document": "1,981,932",
+      "computed": "1,981,932",
+      "unrounded": "1,981,931.5285714285…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 메타 피드·스토리",
+      "item": "CPA",
+      "status": "일치",
+      "document": "23,333",
+      "computed": "23,333",
+      "unrounded": "23,333.3333333333…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 메타 피드·스토리",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "167.1",
+      "computed": "167.1",
+      "unrounded": "167.1428571428…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "클릭",
+      "status": "일치",
+      "document": "5,759.46",
+      "computed": "5,759.46",
+      "unrounded": "5,759.4591428571…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "전환",
+      "status": "일치",
+      "document": "133.82",
+      "computed": "133.82",
+      "unrounded": "133.8227271428…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "매출",
+      "status": "일치",
+      "document": "5,219,086",
+      "computed": "5,219,086",
+      "unrounded": "5,219,086.3585714285…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "CPA",
+      "status": "일치",
+      "document": "17,722",
+      "computed": "17,722",
+      "unrounded": "17,721.5189873417…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "220.1",
+      "computed": "220.1",
+      "unrounded": "220.0714285714…",
+      "note": ""
+    },
+    {
+      "section": "2개월차 성과 · 월 합계",
+      "item": "성과 순매체비와 견적 순매체비",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "성과 계산 순매체비 합계가 견적 월 순매체비와 같은지"
+    },
+    {
+      "section": "3개월차 견적",
+      "item": "순매체비(예산 역산)",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "월 청구 예산 3,000,000원을 만족하는 유일한 정수 순매체비"
+    },
+    {
+      "section": "3개월차 견적",
+      "item": "수수료",
+      "status": "일치",
+      "document": "355,731",
+      "computed": "355,731",
+      "unrounded": "355,731.3",
+      "note": ""
+    },
+    {
+      "section": "3개월차 견적",
+      "item": "공급가액",
+      "status": "일치",
+      "document": "2,727,273",
+      "computed": "2,727,273",
+      "unrounded": "2,727,273",
+      "note": ""
+    },
+    {
+      "section": "3개월차 견적",
+      "item": "VAT",
+      "status": "일치",
+      "document": "272,727",
+      "computed": "272,727",
+      "unrounded": "272,727.3",
+      "note": ""
+    },
+    {
+      "section": "3개월차 견적",
+      "item": "청구 총액",
+      "status": "일치",
+      "document": "3,000,000",
+      "computed": "3,000,000",
+      "unrounded": "3,000,000",
+      "note": ""
+    },
+    {
+      "section": "3개월차 견적",
+      "item": "청구 총액과 월 예산",
+      "status": "일치",
+      "document": "3,000,000",
+      "computed": "3,000,000",
+      "unrounded": "-",
+      "note": "재계산 청구액이 브리프 월 청구 예산과 같은지"
+    },
+    {
+      "section": "3개월차 배분",
+      "item": "네이버 비율(%)",
+      "status": "일치",
+      "document": "45",
+      "computed": "45",
+      "unrounded": "45.0000042166…",
+      "note": "매체 금액÷문서 월 순매체비×100"
+    },
+    {
+      "section": "3개월차 배분",
+      "item": "메타 비율(%)",
+      "status": "일치",
+      "document": "55",
+      "computed": "55",
+      "unrounded": "54.9999957833…",
+      "note": "매체 금액÷문서 월 순매체비×100"
+    },
+    {
+      "section": "3개월차 배분",
+      "item": "매체 금액 합계",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "구성 매체(소계 행 제외) 금액 합계와 문서 월 순매체비 비교"
+    },
+    {
+      "section": "3개월차 배분",
+      "item": "표시 비율 합계(%)",
+      "status": "일치",
+      "document": "100",
+      "computed": "100",
+      "unrounded": "-",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 네이버 검색·GFA",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "1,067,194",
+      "computed": "1,067,194",
+      "unrounded": "1,067,194",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 네이버 검색·GFA",
+      "item": "클릭",
+      "status": "일치",
+      "document": "2,134.39",
+      "computed": "2,134.39",
+      "unrounded": "2,134.388",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 네이버 검색·GFA",
+      "item": "전환",
+      "status": "일치",
+      "document": "85.38",
+      "computed": "85.38",
+      "unrounded": "85.37552",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 네이버 검색·GFA",
+      "item": "매출",
+      "status": "일치",
+      "document": "3,329,645",
+      "computed": "3,329,645",
+      "unrounded": "3,329,645.28",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 네이버 검색·GFA",
+      "item": "CPA",
+      "status": "일치",
+      "document": "12,500",
+      "computed": "12,500",
+      "unrounded": "12,500",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 네이버 검색·GFA",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "312",
+      "computed": "312",
+      "unrounded": "312",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 메타 피드·스토리",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "1,304,348",
+      "computed": "1,304,348",
+      "unrounded": "1,304,348",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 메타 피드·스토리",
+      "item": "클릭",
+      "status": "일치",
+      "document": "4,347.83",
+      "computed": "4,347.83",
+      "unrounded": "4,347.8266666666…",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 메타 피드·스토리",
+      "item": "전환",
+      "status": "일치",
+      "document": "86.96",
+      "computed": "86.96",
+      "unrounded": "86.9565333333…",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 메타 피드·스토리",
+      "item": "매출",
+      "status": "일치",
+      "document": "3,391,305",
+      "computed": "3,391,305",
+      "unrounded": "3,391,304.8",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 메타 피드·스토리",
+      "item": "CPA",
+      "status": "일치",
+      "document": "15,000",
+      "computed": "15,000",
+      "unrounded": "15,000",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 메타 피드·스토리",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "260",
+      "computed": "260",
+      "unrounded": "260",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "클릭",
+      "status": "일치",
+      "document": "6,482.21",
+      "computed": "6,482.21",
+      "unrounded": "6,482.2146666666…",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "전환",
+      "status": "일치",
+      "document": "172.33",
+      "computed": "172.33",
+      "unrounded": "172.3320533333…",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "매출",
+      "status": "일치",
+      "document": "6,720,950",
+      "computed": "6,720,950",
+      "unrounded": "6,720,950.08",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "CPA",
+      "status": "일치",
+      "document": "13,761",
+      "computed": "13,761",
+      "unrounded": "13,761.4677834357…",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "283.4",
+      "computed": "283.4",
+      "unrounded": "283.4000021926…",
+      "note": ""
+    },
+    {
+      "section": "3개월차 성과 · 월 합계",
+      "item": "성과 순매체비와 견적 순매체비",
+      "status": "일치",
+      "document": "2,371,542",
+      "computed": "2,371,542",
+      "unrounded": "2,371,542",
+      "note": "성과 계산 순매체비 합계가 견적 월 순매체비와 같은지"
+    },
+    {
+      "section": "계약 합계",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "7,114,626",
+      "computed": "7,114,626",
+      "unrounded": "7,114,626",
+      "note": "문서 월 순매체비의 합"
+    },
+    {
+      "section": "계약 합계",
+      "item": "수수료",
+      "status": "일치",
+      "document": "1,067,193",
+      "computed": "1,067,193",
+      "unrounded": "1,067,193",
+      "note": "월별 재계산 값의 합"
+    },
+    {
+      "section": "계약 합계",
+      "item": "공급가액",
+      "status": "일치",
+      "document": "8,181,819",
+      "computed": "8,181,819",
+      "unrounded": "8,181,819",
+      "note": "월별 재계산 값의 합"
+    },
+    {
+      "section": "계약 합계",
+      "item": "VAT",
+      "status": "일치",
+      "document": "818,181",
+      "computed": "818,181",
+      "unrounded": "818,181",
+      "note": "월별 재계산 값의 합"
+    },
+    {
+      "section": "계약 합계",
+      "item": "청구 총액",
+      "status": "일치",
+      "document": "9,000,000",
+      "computed": "9,000,000",
+      "unrounded": "9,000,000",
+      "note": "월별 재계산 값의 합"
+    },
+    {
+      "section": "계약 합계",
+      "item": "청구 총액과 계약 총액 예산",
+      "status": "일치",
+      "document": "9,000,000",
+      "computed": "9,000,000",
+      "unrounded": "-",
+      "note": "월 청구액 합이 브리프 계약 총액과 같은지"
+    },
+    {
+      "section": "계약 누적 성과",
+      "item": "순매체비",
+      "status": "일치",
+      "document": "7,114,626",
+      "computed": "7,114,626",
+      "unrounded": "7,114,626",
+      "note": ""
+    },
+    {
+      "section": "계약 누적 성과",
+      "item": "클릭",
+      "status": "일치",
+      "document": "17,459.03",
+      "computed": "17,459.03",
+      "unrounded": "17,459.0288095238…",
+      "note": ""
+    },
+    {
+      "section": "계약 누적 성과",
+      "item": "전환",
+      "status": "일치",
+      "document": "415.25",
+      "computed": "415.25",
+      "unrounded": "415.2483304761…",
+      "note": ""
+    },
+    {
+      "section": "계약 누적 성과",
+      "item": "매출",
+      "status": "일치",
+      "document": "16,194,685",
+      "computed": "16,194,685",
+      "unrounded": "16,194,684.8885714285…",
+      "note": ""
+    },
+    {
+      "section": "계약 누적 성과",
+      "item": "CPA",
+      "status": "일치",
+      "document": "17,133",
+      "computed": "17,133",
+      "unrounded": "17,133.4246951486…",
+      "note": ""
+    },
+    {
+      "section": "계약 누적 성과",
+      "item": "ROAS(%)",
+      "status": "일치",
+      "document": "227.6",
+      "computed": "227.6",
+      "unrounded": "227.6252453547…",
+      "note": ""
+    }
+  ]
+}

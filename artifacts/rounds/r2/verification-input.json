@@ -1,0 +1,234 @@
+{
+  "label": "r2 draft.md 검산 (artifacts/rounds/r2/draft.md, 기준 movepet-checklist-v1)",
+  "conditions": {
+    "fee_rate_percent": "15",
+    "vat_rate_percent": "10",
+    "unit_price": "39,000",
+    "units_per_purchase": 1,
+    "contract_total_budget": "9,000,000",
+    "months": [
+      {
+        "month": "1개월차",
+        "billing_budget": "3,000,000",
+        "assumptions": [
+          {
+            "media": "네이버 검색·GFA",
+            "cpc": "500",
+            "cvr_percent": "3"
+          },
+          {
+            "media": "메타 피드·스토리",
+            "cpc": "400",
+            "cvr_percent": "1"
+          }
+        ]
+      },
+      {
+        "month": "2개월차",
+        "billing_budget": "3,000,000",
+        "assumptions": [
+          {
+            "media": "네이버 검색·GFA",
+            "cpc": "500",
+            "cvr_percent": "3.5"
+          },
+          {
+            "media": "메타 피드·스토리",
+            "cpc": "350",
+            "cvr_percent": "1.5"
+          }
+        ]
+      },
+      {
+        "month": "3개월차",
+        "billing_budget": "3,000,000",
+        "assumptions": [
+          {
+            "media": "네이버 검색·GFA",
+            "cpc": "500",
+            "cvr_percent": "4"
+          },
+          {
+            "media": "메타 피드·스토리",
+            "cpc": "300",
+            "cvr_percent": "2"
+          }
+        ]
+      }
+    ]
+  },
+  "document": {
+    "display": {
+      "clicks_decimals": 2,
+      "revenue_decimals": 0,
+      "ratio_percent_decimals": 1
+    },
+    "months": [
+      {
+        "month": "1개월차",
+        "quote": {
+          "net_media": "2,371,542",
+          "fee": "355,731",
+          "supply": "2,727,273",
+          "vat": "272,727",
+          "billing": "3,000,000"
+        },
+        "allocation": [
+          {
+            "name": "네이버",
+            "net_media": "1,423,000",
+            "ratio_percent": "60.0"
+          },
+          {
+            "name": "메타",
+            "net_media": "948,542",
+            "ratio_percent": "40.0"
+          }
+        ],
+        "media": [
+          {
+            "net_media": "1,423,000",
+            "clicks": "2,846.00",
+            "conversions": "85.38",
+            "revenue": "3,329,820",
+            "cpa": "16,667",
+            "roas_percent": "234.0",
+            "media": "네이버 검색·GFA"
+          },
+          {
+            "net_media": "948,542",
+            "clicks": "2,371.36",
+            "conversions": "23.71",
+            "revenue": "924,828",
+            "cpa": "40,000",
+            "roas_percent": "97.5",
+            "media": "메타 피드·스토리"
+          }
+        ],
+        "total": {
+          "net_media": "2,371,542",
+          "clicks": "5,217.36",
+          "conversions": "109.09",
+          "revenue": "4,254,648",
+          "cpa": "21,739",
+          "roas_percent": "179.4"
+        }
+      },
+      {
+        "month": "2개월차",
+        "quote": {
+          "net_media": "2,371,542",
+          "fee": "355,731",
+          "supply": "2,727,273",
+          "vat": "272,727",
+          "billing": "3,000,000"
+        },
+        "allocation": [
+          {
+            "name": "네이버",
+            "net_media": "1,185,771",
+            "ratio_percent": "50.0"
+          },
+          {
+            "name": "메타",
+            "net_media": "1,185,771",
+            "ratio_percent": "50.0"
+          }
+        ],
+        "media": [
+          {
+            "net_media": "1,185,771",
+            "clicks": "2,371.54",
+            "conversions": "83.00",
+            "revenue": "3,237,155",
+            "cpa": "14,286",
+            "roas_percent": "273.0",
+            "media": "네이버 검색·GFA"
+          },
+          {
+            "net_media": "1,185,771",
+            "clicks": "3,387.92",
+            "conversions": "50.82",
+            "revenue": "1,981,932",
+            "cpa": "23,333",
+            "roas_percent": "167.1",
+            "media": "메타 피드·스토리"
+          }
+        ],
+        "total": {
+          "net_media": "2,371,542",
+          "clicks": "5,759.46",
+          "conversions": "133.82",
+          "revenue": "5,219,086",
+          "cpa": "17,722",
+          "roas_percent": "220.1"
+        }
+      },
+      {
+        "month": "3개월차",
+        "quote": {
+          "net_media": "2,371,542",
+          "fee": "355,731",
+          "supply": "2,727,273",
+          "vat": "272,727",
+          "billing": "3,000,000"
+        },
+        "allocation": [
+          {
+            "name": "네이버",
+            "net_media": "1,067,194",
+            "ratio_percent": "45.0"
+          },
+          {
+            "name": "메타",
+            "net_media": "1,304,348",
+            "ratio_percent": "55.0"
+          }
+        ],
+        "media": [
+          {
+            "net_media": "1,067,194",
+            "clicks": "2,134.39",
+            "conversions": "85.38",
+            "revenue": "3,329,645",
+            "cpa": "12,500",
+            "roas_percent": "312.0",
+            "media": "네이버 검색·GFA"
+          },
+          {
+            "net_media": "1,304,348",
+            "clicks": "4,347.83",
+            "conversions": "86.96",
+            "revenue": "3,391,305",
+            "cpa": "15,000",
+            "roas_percent": "260.0",
+            "media": "메타 피드·스토리"
+          }
+        ],
+        "total": {
+          "net_media": "2,371,542",
+          "clicks": "6,482.21",
+          "conversions": "172.33",
+          "revenue": "6,720,950",
+          "cpa": "13,761",
+          "roas_percent": "283.4"
+        }
+      }
+    ],
+    "contract_quote": {
+      "net_media": "7,114,626",
+      "fee": "1,067,193",
+      "supply": "8,181,819",
+      "vat": "818,181",
+      "billing": "9,000,000"
+    },
+    "cumulative": {
+      "net_media": "7,114,626",
+      "clicks": "17,459.03",
+      "conversions": "415.25",
+      "revenue": "16,194,685",
+      "cpa": "17,133",
+      "roas_percent": "227.6"
+    }
+  }
+}
