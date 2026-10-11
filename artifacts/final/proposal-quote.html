@@ -1,0 +1,601 @@
+<!doctype html><html lang="ko" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>무브펫 서큘 자동급수기 Circle 2.0 광고 운영 제안 및 견적서</title><style>
+  :root{
+    --bg:#f6f3ed;
+    --paper:#fffdf9;
+    --ink:#1f2420;
+    --ink-soft:#4a534c;
+    --ink-faint:#7c8880;
+    --line:#e7e1d7;
+    --line-strong:#cec7b9;
+    --accent:#2f6b4f;
+    --accent-soft:#edf5ef;
+    --pass:#1f7a4d;
+    --pass-bg:#e5f5ec;
+    --pass-border:#a9dcc0;
+    --warn:#a8710a;
+    --warn-bg:#fbf1de;
+    --warn-border:#e9cf98;
+    --table-head:#f0f3ed;
+    --table-stripe:#fcfaf5;
+    --code-bg:#f1efe8;
+    --hero-bg:#eef5f1;
+    --hero-border:#dbe7dc;
+    --hero-text:#44515a;
+    --product-bg:#e7efe6;
+    --product-border:#d5e2d7;
+    --hero-line:#cbd9dd;
+    --hero-stat:#163c32;
+    --hero-muted:#66747a;
+    --shadow: 0 2px 4px rgba(47,54,42,0.04), 0 16px 40px rgba(47,54,42,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#151815;
+      --paper:#1c201c;
+      --ink:#eceee9;
+      --ink-soft:#b7bdb3;
+      --ink-faint:#828a80;
+      --line:#33372f;
+      --line-strong:#454a3f;
+      --accent:#6fbf94;
+      --accent-soft:#1e2c23;
+      --pass:#7fd3a3;
+      --pass-bg:#173226;
+      --pass-border:#2c5d42;
+      --warn:#e0b459;
+      --warn-bg:#332a15;
+      --warn-border:#5c4a1f;
+      --table-head:#242822;
+      --table-stripe:#20241f;
+      --code-bg:#242822;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#151815;
+    --paper:#1c201c;
+    --ink:#eceee9;
+    --ink-soft:#b7bdb3;
+    --ink-faint:#828a80;
+    --line:#33372f;
+    --line-strong:#454a3f;
+    --accent:#6fbf94;
+    --accent-soft:#1e2c23;
+    --pass:#7fd3a3;
+    --pass-bg:#173226;
+    --pass-border:#2c5d42;
+    --warn:#e0b459;
+    --warn-bg:#332a15;
+    --warn-border:#5c4a1f;
+    --table-head:#242822;
+    --table-stripe:#20241f;
+    --code-bg:#242822;
+    --hero-bg:#202b24;
+    --hero-border:#385243;
+    --hero-text:#c2cec5;
+    --product-bg:#26352b;
+    --product-border:#3c5646;
+    --hero-line:#3d5143;
+    --hero-stat:#b8dfc4;
+    --hero-muted:#a4b5aa;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{color-scheme:dark;}
+  html[data-theme="light"]{color-scheme:light;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.7;
+    background-image:radial-gradient(circle at 10% 0%, rgba(82,130,102,.14), transparent 34%), radial-gradient(circle at 94% 12%, rgba(177,132,49,.10), transparent 28%);
+    -webkit-font-smoothing:antialiased;
+  }
+  :root[data-theme="light"] body{
+    background-image:radial-gradient(circle at 10% 0%, rgba(231,242,236,.7), transparent 34%), radial-gradient(circle at 94% 12%, rgba(251,241,222,.65), transparent 28%);
+  }
+  .page{
+    max-width:1160px;
+    margin:0 auto;
+    padding:76px 20px 88px;
+  }
+
+  .theme-toggle{
+    position:fixed;
+    right:18px;
+    top:14px;
+    z-index:20;
+    display:inline-flex;
+    gap:4px;
+    padding:4px;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    background:color-mix(in srgb,var(--paper) 92%,transparent);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(12px);
+  }
+  .theme-toggle button{
+    min-width:58px;
+    min-height:36px;
+    border:0;
+    border-radius:999px;
+    padding:7px 12px;
+    background:transparent;
+    color:var(--ink-faint);
+    cursor:pointer;
+    font:700 12px/1 "Pretendard","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    transition:background .2s ease,color .2s ease,transform .2s ease;
+  }
+  .theme-toggle button:hover{color:var(--ink);transform:translateY(-1px);}
+  .theme-toggle button:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent);outline-offset:2px;}
+  .theme-toggle button[aria-pressed="true"]{background:var(--accent);color:#fff;}
+  @media(max-width:640px){.theme-toggle{top:10px;right:10px;}}
+  @media print{.theme-toggle{display:none;}}
+
+  /* ---- Status header ---- */
+  .status-card{
+    display:block;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding:28px 28px 24px;
+    margin-bottom:28px;
+  }
+  .status-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .badge-pass{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--pass-bg);
+    color:var(--pass);
+    border:1px solid var(--pass-border);
+    border-radius:999px;
+    padding:8px 18px;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.02em;
+  }
+  .badge-pass svg{width:16px;height:16px;flex:none;}
+  .round-note{
+    text-align:right;
+    font-size:13px;
+    color:var(--ink-faint);
+    line-height:1.5;
+  }
+  .round-note strong{color:var(--ink-soft);font-weight:600;}
+
+  .status-title{
+    margin:18px 0 4px;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  .status-sub{
+    margin:0 0 18px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+  .status-sub a{color:var(--accent);font-weight:750;text-underline-offset:3px;}
+
+  .role-flow{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:stretch;
+    gap:12px;
+    margin:18px 0;
+  }
+  .role-box{
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    background:var(--accent-soft);
+  }
+  .role-box.evaluator{background:var(--table-head);}
+  .role-box b{display:block;font-size:15px;margin-bottom:3px;}
+  .role-box span{font-size:12px;color:var(--ink-faint);}
+  .role-arrow{align-self:center;color:var(--accent);font-weight:900;font-size:20px;}
+
+  .warning-summary{
+    margin:4px 0 20px;
+    padding:14px 16px;
+    border:1px solid var(--warn-border);
+    border-radius:12px;
+    background:var(--warn-bg);
+  }
+  .warning-summary strong{display:block;color:var(--warn);font-size:13px;margin-bottom:5px;}
+  .warning-summary p{margin:0;font-size:12.5px;line-height:1.6;}
+
+  .score-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .score-pill{
+    flex:1 1 150px;
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+  }
+  .score-pill .num{
+    font-size:20px;
+    font-weight:800;
+    color:var(--accent);
+  }
+  .score-pill .label{
+    font-size:12px;
+    color:var(--ink-faint);
+    margin-top:2px;
+  }
+
+  .timeline{
+    display:flex;
+    align-items:center;
+    gap:0;
+    margin:6px 0 20px;
+    font-size:13px;
+  }
+  .tl-step{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .tl-dot{
+    width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;flex:none;
+    border:1px solid var(--line-strong);
+    background:var(--paper);
+    color:var(--ink-soft);
+  }
+  .tl-step.fail .tl-dot{
+    background:var(--warn-bg);border-color:var(--warn-border);color:var(--warn);
+  }
+  .tl-step.pass .tl-dot{
+    background:var(--pass-bg);border-color:var(--pass-border);color:var(--pass);
+  }
+  .tl-text{color:var(--ink-soft);}
+  .tl-text strong{color:var(--ink);}
+  .tl-arrow{
+    width:34px;height:1px;background:var(--line-strong);margin:0 6px;
+  }
+
+  .checklist{
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .checklist summary{
+    cursor:pointer;
+    list-style:none;
+    padding:14px 16px;
+    font-weight:700;
+    font-size:14px;
+    background:var(--table-head);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .checklist summary::-webkit-details-marker{display:none;}
+  .checklist summary::after{
+    content:"펼치기";
+    font-size:12px;
+    font-weight:600;
+    color:var(--ink-faint);
+  }
+  .checklist[open] summary::after{content:"접기";}
+  .check-grid{
+    padding:6px 16px 14px;
+  }
+  .check-row{
+    display:flex;
+    gap:10px;
+    padding:9px 2px;
+    border-bottom:1px dashed var(--line);
+    font-size:13.5px;
+    align-items:flex-start;
+  }
+  .check-row:last-child{border-bottom:none;}
+  .check-tag{
+    flex:none;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--ink-faint);
+    width:28px;
+    padding-top:1px;
+  }
+  .check-mark{
+    flex:none;
+    width:20px;
+    text-align:center;
+  }
+  .check-mark.ok{color:var(--pass);font-weight:800;}
+  .check-mark.fixed{color:var(--warn);font-weight:800;}
+  .check-body{flex:1;color:var(--ink-soft);}
+  .check-body b{color:var(--ink);font-weight:600;}
+  .fixed-tag{
+    display:inline-block;
+    margin-left:6px;
+    font-size:10.5px;
+    font-weight:700;
+    color:var(--warn);
+    background:var(--warn-bg);
+    border:1px solid var(--warn-border);
+    border-radius:6px;
+    padding:1px 6px;
+    vertical-align:middle;
+  }
+
+  .diff-box{
+    margin-top:18px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px 18px;
+    background:var(--table-head);
+  }
+  .diff-box h4{
+    margin:0 0 10px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-faint);
+  }
+  .diff-item{
+    margin-bottom:12px;
+    font-size:13.5px;
+  }
+  .diff-item:last-child{margin-bottom:0;}
+  .diff-loc{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11px;
+    color:var(--ink-faint);
+    margin-bottom:4px;
+  }
+  .diff-before, .diff-after{
+    padding:6px 10px;
+    border-radius:6px;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:4px;
+  }
+  .diff-before{
+    background:var(--warn-bg);
+    color:var(--ink);
+    border:1px solid var(--warn-border);
+  }
+  .diff-before::before{content:"수정 전  ";color:var(--warn);font-weight:700;}
+  .diff-after{
+    background:var(--pass-bg);
+    color:var(--ink);
+    border:1px solid var(--pass-border);
+  }
+  .diff-after::before{content:"수정 후  ";color:var(--pass);font-weight:700;}
+
+  /* ---- Document body ---- */
+  .doc{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding:0 54px 54px;
+  }
+  @media (max-width:640px){
+    .page{padding-top:68px;}
+    .doc{padding:0 18px 32px;}
+    .status-card{padding:20px 18px 18px;}
+    .role-flow{grid-template-columns:1fr;}
+    .role-arrow{transform:rotate(90deg);justify-self:center;}
+  }
+
+  .doc h1{
+    font-size:32px;
+    margin:0 0 22px;
+    letter-spacing:-0.01em;
+  }
+  .doc h2{
+    font-size:18px;
+    margin:36px 0 14px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--accent);
+    color:var(--ink);
+  }
+  .doc h2:first-of-type{margin-top:8px;}
+  .doc h3{
+    font-size:15px;
+    margin:22px 0 10px;
+    color:var(--accent);
+  }
+  .meta-list{
+    list-style:none;
+    margin:0 0 20px;
+    padding:16px 18px;
+    background:var(--accent-soft);
+    border-radius:10px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+
+  .doc-switch{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin:0 -54px;
+    padding:16px 54px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  .doc-switch strong{color:var(--accent);}
+  .doc-switch a{
+    color:var(--accent);
+    font-weight:750;
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+  }
+  .proposal-hero{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);
+    align-items:center;
+    gap:36px;
+    margin:22px 0 40px;
+    padding:38px 34px 30px;
+    background:linear-gradient(135deg,var(--hero-bg) 0%,var(--accent-soft) 100%);
+    border:1px solid var(--hero-border);
+    border-radius:22px;
+  }
+  .proposal-hero .kicker{margin:0 0 10px;color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.04em;}
+  .proposal-hero h1{margin:0 0 12px;font-size:38px;line-height:1.22;letter-spacing:-.04em;}
+  .proposal-hero p{max-width:48ch;margin:0;color:var(--hero-text);}
+  .product-frame{overflow:hidden;border:1px solid var(--product-border);border-radius:18px;background:var(--product-bg);box-shadow:0 18px 42px rgba(45,91,103,.12);}
+  .product-frame img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px;border-top:1px solid var(--hero-line);border-bottom:1px solid var(--hero-line);}
+  .hero-stat{padding:14px 10px 14px 0;}
+  .hero-stat + .hero-stat{padding-left:14px;border-left:1px solid var(--hero-line);}
+  .hero-stat b{display:block;color:var(--hero-stat);font-size:20px;line-height:1.1;}
+  .hero-stat span{display:block;margin-top:5px;color:var(--hero-muted);font-size:11px;}
+  .meta-list li{margin:3px 0;}
+  .meta-list b{color:var(--ink);}
+
+  hr{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:28px 0;
+  }
+  p{margin:0 0 12px;font-size:14.5px;color:var(--ink-soft);}
+  p.warning{
+    padding:10px 12px;
+    border-left:3px solid var(--warn-border);
+    background:var(--warn-bg);
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  p.warning b{color:var(--warn);}
+  ul, ol{margin:0 0 14px;padding-left:22px;font-size:14.5px;color:var(--ink-soft);}
+  li{margin:4px 0;}
+  strong{color:var(--ink);font-weight:700;}
+  b{color:var(--ink);}
+
+  .table-wrap{
+    overflow-x:auto;
+    margin:14px 0 18px;
+    border:1px solid var(--line);
+    border-radius:10px;
+  }
+  table{
+    border-collapse:separate;
+    border-spacing:0;
+    width:100%;
+    font-size:13px;
+    min-width:520px;
+  }
+  thead th{
+    background:var(--table-head);
+    color:var(--ink);
+    font-weight:700;
+    text-align:left;
+    padding:13px 14px;
+    white-space:nowrap;
+    border-bottom:1px solid var(--line-strong);
+  }
+  tbody td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  thead th + th, tbody td + td{border-left:1px solid var(--line);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:var(--table-stripe);}
+  tbody tr:last-child, tbody tr.total-row{
+    font-weight:700;
+    color:var(--ink);
+  }
+  tbody tr:last-child td{color:var(--ink);}
+
+  .callout{
+    background:var(--accent-soft);
+    border-left:3px solid var(--accent);
+    border-radius:0 8px 8px 0;
+    padding:12px 16px;
+    margin:14px 0;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .callout b{color:var(--ink);}
+
+  .revision{
+    margin-top:8px;
+    background:var(--warn-bg);
+    border:1px solid var(--warn-border);
+    border-radius:10px;
+    padding:14px 18px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .revision b{color:var(--warn);}
+
+  .footer-note{
+    text-align:center;
+    color:var(--ink-faint);
+    font-size:12px;
+    margin-top:28px;
+  }
+  @media (max-width:760px){
+    .doc-switch{margin:0 -18px;padding:14px 18px;align-items:flex-start;flex-direction:column;gap:6px;}
+    .proposal-hero{grid-template-columns:1fr;margin:18px 0 30px;padding:30px 18px 26px;}
+    .proposal-hero h1{font-size:30px;}
+    .product-frame{order:-1;}
+    .hero-stats{grid-template-columns:1fr 1fr 1fr;}
+    .hero-stat b{font-size:17px;}
+  }
+.reference-hero{grid-template-columns:1fr}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px 14px;padding:16px 18px;margin:0 0 24px;background:var(--table-head);border:1px solid var(--line);border-radius:12px;font-size:13px}.toc strong{width:100%;color:var(--ink)}.toc a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}.doc code{background:var(--code-bg);padding:1px 4px;border-radius:4px;font-size:.92em}.nested-list{margin-top:-8px}
+</style></head><body><div class="theme-toggle" role="group" aria-label="테마 선택"><button type="button" data-theme-choice="light" aria-pressed="false">Light</button><button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button></div><div class="page"><article class="doc"><nav class="doc-switch" aria-label="문서 이동"><strong aria-current="page">제안서</strong><a href="cross-review-report.html">교차 검토 보고서 보기</a></nav><header class="proposal-hero"><div><p class="kicker">무브펫 · 광고 운영 제안서</p><h1>무브펫 서큘 자동급수기 Circle 2.0 광고 운영 제안 및 견적서</h1><p>신규 제품 출시를 위한 광고 전략·기대 성과·견적 제안</p><div class="hero-stats"><div class="hero-stat"><b>3개월</b><span>제안 기간</span></div><div class="hero-stat"><b>900만원</b><span>계약 총액</span></div><div class="hero-stat"><b>15%</b><span>대행 수수료</span></div></div></div></header><aside class="toc" aria-label="문서 목차"><strong>목차</strong><a href="#section-1">1. 목표와 KPI</a><a href="#section-2">2. 타겟 오디언스</a><a href="#section-3">3. 매체 전략</a><a href="#section-4">4. 월별 예산 배분</a><a href="#section-5">5. 크리에이티브 방향</a><a href="#section-6">6. 기대 성과와 계산 근거</a><a href="#section-7">7. 운영 일정</a><a href="#section-8">8. 정기 보고</a><a href="#section-9">9. 견적과 업무 범위</a><a href="#section-10">참고자료</a></aside>
+<p>무브펫 공식스토어의 신규 제품 출시를 위한 광고 전략·기대 성과·견적을 제안하는 문서입니다.</p>
+<ul><li>고객사·제품: 무브펫 공식스토어, 무브펫 서큘 자동급수기 Circle 2.0(판매가 39,000원, 필터 2입 포함)</li><li>제안사: 포커싱온</li><li>기준 자료: 고객 브리프 (../../sources/brief.md) (2026-10-11 기준), 회사 소개서 (../../docs/about-company.md) (2026-10-11 기준), 업무 사규 (../../docs/company-rules.md) (2026-10-11 기준), 프로젝트 작업 지침 (../../docs/project-instructions.md) (2026-10-11 기준), 요구사항 정의서 (../rules/requirements.md) (movepet-requirements-v1, 2026-10-11 기준)</li><li>문서 성격: 계약 전 제안·견적이며 계약 체결이나 광고 집행 승인을 뜻하지 않습니다.</li></ul>
+<h2 id="section-1">1. 목표와 KPI</h2>
+<p>아래 예상치는 제공된 CPC·CVR 계획값과 제안한 순매체비 배분을 적용한 계산값입니다. 실제 집행 성과나 달성 보장이 아니며, 1~2주 집행 후 실측값으로 갱신합니다.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">지표</th><th scope="col">목표</th><th scope="col">월별·누적 예상</th><th scope="col">목표와의 차이</th><th scope="col">개선 방안</th></tr></thead><tbody><tr><td>CPA(순매체비 기준)</td><td>구매 전환당 15,000원 이하</td><td>1개월차 21,739원, 2개월차 17,722원, 3개월차 13,761원, 계약 누적 17,133원</td><td>1개월차 6,739원 미달, 2개월차 2,722원 미달, 3개월차 1,239원 초과 달성, 누적 2,133원 미달</td><td>1~2개월차는 저성과 검색어·소재·타겟을 조정하고, 실측 CPA가 낮은 조합으로 예산을 재배분. 3개월차에는 계획상 목표 이하이나 실측 검증 필요</td></tr><tr><td>ROAS(순매체비 기준)</td><td>250% 이상</td><td>1개월차 179.4%, 2개월차 220.1%, 3개월차 283.4%, 계약 누적 227.6%</td><td>1개월차 70.6%p 미달, 2개월차 29.9%p 미달, 3개월차 33.4%p 초과 달성, 누적 22.4%p 미달</td><td>초반에는 구매 의도 검색어와 전환 가능 소재를 우선 확인하고, 메타의 저성과 조합을 교체·축소. 실측 매출·전환 중복을 확인해 2~3개월차 배분을 갱신</td></tr><tr class="total-row"><td>신규 구매 고객 비중</td><td>70% 이상</td><td>추정치 미제시(구매 이력 확인 후 산출)</td><td>확인 전 차이 산정 불가</td><td>스토어 구매 이력에서 신규·기존 구분이 가능한 범위를 확인하고, 확인 불가 고객은 측정 한계로 보고</td></tr></tbody></table></div>
+<p>표의 CPA 차이는 <code>예상 CPA − 목표 CPA</code>의 절댓값을 미달·초과 달성 방향으로 표시했고, ROAS 차이는 <code>예상 ROAS − 목표 ROAS</code>의 절댓값을 미달·초과 달성 방향으로 표시했습니다. 목표 CPA와 ROAS는 유지합니다. 계획값 기준으로 1~2개월차와 계약 누적은 목표에 미달하므로 실제 성과로 간주하지 않고, 원인 확인과 개선을 병행합니다.</p>
+<h2 id="section-2">2. 타겟 오디언스</h2>
+<ul><li>공통 고객: 수도권의 25~45세 여성 반려묘·반려견 보호자 및 온라인 반려용품 구매자. 물 관리와 제품 세척의 번거로움을 줄일 방법을 찾는 고객을 우선합니다.</li><li>확장 고객: 다묘·다견 가정, 맞벌이 가구, 1인 가구.</li><li>매체별 접근: 네이버는 반려동물 급수기·자동급수기 등 구매 의도 검색 수요를 중심으로 접근하고, GFA는 제품 특징과 사용 장면을 보여 주는 관심 기반·리타게팅 가능 범위를 확인해 운영합니다. 메타는 페이스북·인스타그램 피드·스토리에서 반려동물 보호자 관심군과 제품 방문자 기반 접근을 검토합니다.</li><li>제외 대상: 반려동물과 무관한 일반 가전 관심층으로 무차별 확장하지 않습니다. 이 제품의 1·2차 고객은 반려묘·반려견 보호자와 다묘·다견·맞벌이·1인 가구이고, 핵심 고민은 반려동물의 물 관리와 세척 번거로움이므로 일반 가전 관심층은 제품 문제와 직접 연결되지 않아 제외합니다. 질병 예방·치료를 기대하게 하는 관심사나 메시지도 사용하지 않습니다.</li><li>계정 확인: 계약 후 첫 주 실제 네이버·메타 계정에서 타겟팅 기능, 전환 이벤트, 구매 추적, 리타게팅 가능 범위를 확인합니다. 기능이나 권한이 없으면 확인된 범위에서 대체 설정을 검토하고, 승인 없이 매체·예산을 변경하지 않습니다.</li></ul>
+<h2 id="section-3">3. 매체 전략</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">매체</th><th scope="col">역할·캠페인 유형</th><th scope="col">운영 근거</th></tr></thead><tbody><tr><td>네이버 검색광고·GFA</td><td>검색광고로 구매 의도 수요를 확보하고, GFA로 제품 특징·사용 장면을 전달</td><td>신규 제품으로 과거 전환 데이터가 없으므로 검색 수요와 관심 기반 유입을 함께 확인. 검색어·소재별 전환 데이터를 축적해 전환 중심으로 조정</td></tr><tr class="total-row"><td>메타 페이스북·인스타그램 피드·스토리</td><td>피드·스토리 이미지/영상으로 제품 발견과 방문을 유도하고, 계정에서 가능할 때 방문자·구매자 기반 재접근</td><td>반려동물 보호자의 생활 장면에서 4단계 정수 필터, 2L 용량, 원터치 분리 구조 등 제공 정보로 관심을 형성. 실제 전환 추적 가능 범위 확인 후 최적화</td></tr></tbody></table></div>
+<h2 id="section-4">4. 월별 예산 배분</h2>
+<p>모든 금액은 VAT와 대행 수수료를 제외한 순매체비입니다. 매월 네이버 금액을 먼저 정하고, 월 순매체비에서 네이버 금액을 뺀 잔액을 마지막 매체인 메타에 배정합니다. 따라서 원 단위 잔액을 배정하는 마지막 매체는 매월 메타이며, 월 순매체비 2,371,542원 전액이 배분됩니다.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">월</th><th scope="col">매체별 순매체비·비율</th><th scope="col">순매체비 합계</th><th scope="col">배분 이유</th></tr></thead><tbody><tr><td>1개월차</td><td>네이버 1,423,000원·60.0%, 메타 948,542원·40.0%</td><td>2,371,542원</td><td>출시 초기 구매 의도 검색 수요를 우선 확보하면서 메타에서 제품 발견 데이터를 병행 수집</td></tr><tr><td>2개월차</td><td>네이버 1,185,771원·50.0%, 메타 1,185,771원·50.0%</td><td>2,371,542원</td><td>1개월차 검색어·소재·타겟 실측을 반영하고, 메타의 효율 가능성을 확인할 수 있도록 균형 배분</td></tr><tr class="total-row"><td>3개월차</td><td>네이버 1,067,194원·45.0%, 메타 1,304,348원·55.0%</td><td>2,371,542원</td><td>계획값상 메타 CPC·CVR 개선을 반영하되, 실측 성과가 다르면 CPA·ROAS가 확인된 조합으로 재배분</td></tr></tbody></table></div>
+<h2 id="section-5">5. 크리에이티브 방향</h2>
+<ul><li>핵심 메시지: 반려동물의 물 관리에 필요한 기능을 간결하게 보여 줍니다. 4단계 정수 필터, 2L 용량, 원터치 분리 구조, 일부 부품 식기세척기 세척 가능이라는 제공 정보를 사용합니다.</li><li>표현상 유의: 필터 교체 주기 60일은 사용 환경에 따라 달라지는 관리 가정이며 물 교체·세척을 대체한다는 뜻이 아닙니다. 질병 예방·치료, 위생·건강 효능, 경쟁 우위, 배송 우수성을 암시하지 않습니다.</li><li>소재 형식: 네이버 검색·GFA용 텍스트·이미지 소재와 메타 피드·스토리용 세로·가로 이미지 또는 짧은 영상. 제품 구조, 물 보충·분리·세척 장면을 고객 제공 자료 범위에서 구성합니다.</li><li>광고 문구 예시:</li></ul>
+<ul class="nested-list"><li>“매일 쓰는 물 관리, 2L 자동급수기”</li><li>“원터치로 분리하는 무브펫 Circle 2.0”</li><li>“4단계 정수 필터와 함께 시작하는 반려동물 급수 관리”</li></ul>
+<ul><li>자료 확보: 제안 단계는 텍스트로 작성합니다. 계약 후 첫 주에 고객으로부터 로고·제품 이미지·사용 장면 자료를 받아 소재를 제작하며, 촬영·상세페이지 제작은 포함하지 않습니다.</li></ul>
+<h2 id="section-6">6. 기대 성과와 계산 근거</h2>
+<h3>입력 근거와 전제</h3>
+<ul><li>판매가: 39,000원, 필터 2입 포함. 출처: 브리프의 회사와 제품 (../../sources/brief.md#회사와-제품).</li><li>월별 CPC·CVR: 브리프의 제공된 성과 가정 (../../sources/brief.md#제공된-성과-가정)을 적용했습니다.</li><li>구매당 수량: 1개. 필터 재구매·추가 구매 매출은 제외합니다.</li><li>과거 실적: 신규 등록 예정 제품으로 판매·리뷰·과거 광고 실적이 없습니다.</li><li>매체 간 전환: 계획값에서는 중복이 없다고 가정했습니다. 실제 집행에서는 스토어 주문 내역을 매체별 보고 전환과 대조하고, 주문 식별자·전환 시각·캠페인/매체 귀속을 맞춰 중복 주문을 확인합니다. 추적 누락은 스토어 총 주문·매출과 매체별 추적 주문·매출을 같은 기간으로 대조해 점검합니다.</li><li>반올림: 클릭·전환·매출·CPA·ROAS는 중간값을 반올림하지 않고 계산한 뒤 표시값만 반올림했습니다. 클릭은 소수 둘째 자리, 전환은 소수 둘째 자리, 매출·CPA는 원 단위, ROAS는 소수 첫째 자리로 표시합니다.</li><li>실측 갱신: 집행 후 1~2주에 CPC·CVR·전환·CPA·ROAS와 매체 간 중복·추적 누락을 확인하고 이후 월별·누적 예상치를 갱신합니다. 클릭·전환 등 입력값이 누락되거나 CPA·ROAS의 분모가 0이면 해당 지표를 <code>산출 불가</code>로 표시하며, 계획값으로 임의 대체하지 않습니다. 원인과 재수집 시점을 함께 보고합니다.</li></ul>
+<div class="table-wrap"><table><thead><tr><th scope="col">계산 항목</th><th scope="col">산식</th></tr></thead><tbody><tr><td>클릭</td><td>순매체비 ÷ CPC</td></tr><tr><td>전환</td><td>클릭 × CVR</td></tr><tr><td>매출</td><td>전환 × 구매당 1개 × 39,000원</td></tr><tr><td>CPA</td><td>순매체비 ÷ 전환</td></tr><tr class="total-row"><td>ROAS</td><td>매출 ÷ 순매체비 × 100</td></tr></tbody></table></div>
+<h3>월별·매체별 예상 성과</h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">월·매체</th><th scope="col">순매체비</th><th scope="col">CPC·CVR</th><th scope="col">예상 클릭·전환</th><th scope="col">예상 매출</th><th scope="col">CPA</th><th scope="col">ROAS</th></tr></thead><tbody><tr><td>1개월차 네이버 검색·GFA</td><td>1,423,000원</td><td>500원·3.0%</td><td>2,846.00회·85.38건</td><td>3,329,820원</td><td>16,667원</td><td>234.0%</td></tr><tr><td>1개월차 메타 피드·스토리</td><td>948,542원</td><td>400원·1.0%</td><td>2,371.36회·23.71건</td><td>924,828원</td><td>40,000원</td><td>97.5%</td></tr><tr><td>1개월차 합계</td><td>2,371,542원</td><td>매체별 입력 적용</td><td>5,217.36회·109.09건</td><td>4,254,648원</td><td>21,739원</td><td>179.4%</td></tr><tr><td>2개월차 네이버 검색·GFA</td><td>1,185,771원</td><td>500원·3.5%</td><td>2,371.54회·83.00건</td><td>3,237,155원</td><td>14,286원</td><td>273.0%</td></tr><tr><td>2개월차 메타 피드·스토리</td><td>1,185,771원</td><td>350원·1.5%</td><td>3,387.92회·50.82건</td><td>1,981,932원</td><td>23,333원</td><td>167.1%</td></tr><tr><td>2개월차 합계</td><td>2,371,542원</td><td>매체별 입력 적용</td><td>5,759.46회·133.82건</td><td>5,219,086원</td><td>17,722원</td><td>220.1%</td></tr><tr><td>3개월차 네이버 검색·GFA</td><td>1,067,194원</td><td>500원·4.0%</td><td>2,134.39회·85.38건</td><td>3,329,645원</td><td>12,500원</td><td>312.0%</td></tr><tr><td>3개월차 메타 피드·스토리</td><td>1,304,348원</td><td>300원·2.0%</td><td>4,347.83회·86.96건</td><td>3,391,305원</td><td>15,000원</td><td>260.0%</td></tr><tr><td>3개월차 합계</td><td>2,371,542원</td><td>매체별 입력 적용</td><td>6,482.21회·172.33건</td><td>6,720,950원</td><td>13,761원</td><td>283.4%</td></tr><tr class="total-row"><td>계약 누적(3개월)</td><td>7,114,626원</td><td>월별 입력 적용</td><td>17,459.03회·415.25건</td><td>16,194,685원</td><td>17,133원</td><td>227.6%</td></tr></tbody></table></div>
+<p>계약 누적 예상은 목표 CPA보다 2,133원 높고 목표 ROAS보다 22.4%p 낮습니다. 이는 계획값을 합산한 예상치일 뿐이며, 목표를 완화하거나 실제 성과로 확정하지 않습니다. 1~2주 실측 뒤 저성과 검색어·소재·타겟을 조정하고 매체별 전환이 확인되는 방향으로 다음 기간 예산을 조정합니다.</p>
+<h2 id="section-7">7. 운영 일정</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">시기</th><th scope="col">작업</th><th scope="col">확인할 결과</th></tr></thead><tbody><tr><td>계약 후 첫 주</td><td>네이버·메타 계정 접근 권한, 타겟팅 기능, 구매 전환 이벤트·추적 가능 여부, 로고·제품 이미지 수령 및 캠페인 세팅</td><td>집행·측정 가능한 계정 기능과 소재 자료 범위. 미확보 시 집행 전 고객과 공유하고 일정·설정을 조정</td></tr><tr><td>1개월차</td><td>인지도·트래픽 집행, 검색어·소재·타겟별 초기 데이터 수집, 1~2주 후 CPC·CVR·전환 중복·추적 누락 점검</td><td>실측 입력값과 초기 저성과 조합. 계획값과 차이를 구분해 기록</td></tr><tr><td>2개월차</td><td>저성과 소재·타겟·검색어 조정, 전환 중심 최적화, 확인된 조합으로 예산 재배분 검토</td><td>CPA·ROAS 개선 여부와 매체별 전환 기여</td></tr><tr class="total-row"><td>3개월차</td><td>성과 점검, 매체·캠페인별 예산 소진과 누적 KPI 검토, 후속 운영안 제안</td><td>실측 기반 후속 운영 방향. 신규 구매 고객 측정 가능 범위와 한계</td></tr></tbody></table></div>
+<h2 id="section-8">8. 정기 보고</h2>
+<ul><li>보고 주기: 주 1회 간단 리포트와 월 1회 정식 리포트를 제공합니다. 두 보고에 아래 항목을 공통으로 담습니다.</li><li>광고 지표: 매체별 노출·클릭·CTR·CPC, 전환·CVR·CPA와 목표 비교, ROAS.</li><li>예산 현황: 집행액·잔여 예산, 매체·캠페인별 예산 소진.</li><li>운영 판단: 특이사항, 저성과 조합, 다음 기간 소재·타겟·검색어·예산 개선 계획.</li><li>신규 고객: 구매 이력에서 확인 가능한 신규 구매 고객 비중과 목표 70% 비교. 구매 이력 접근 또는 고객 구분이 제한되면 확인 가능한 범위와 측정 한계를 함께 보고하며 비중을 추정하지 않습니다.</li></ul>
+<h2 id="section-9">9. 견적과 업무 범위</h2>
+<h3>월별 견적</h3>
+<p>월 청구 총액 3,000,000원에서 수수료와 VAT를 역산해 순매체비를 산정했습니다. 수수료와 VAT는 원 단위 반올림을 적용합니다.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">월</th><th scope="col">순매체비</th><th scope="col">수수료</th><th scope="col">공급가액</th><th scope="col">VAT</th><th scope="col">청구 총액</th></tr></thead><tbody><tr><td>1개월차</td><td>2,371,542원</td><td>355,731원</td><td>2,727,273원</td><td>272,727원</td><td>3,000,000원</td></tr><tr><td>2개월차</td><td>2,371,542원</td><td>355,731원</td><td>2,727,273원</td><td>272,727원</td><td>3,000,000원</td></tr><tr><td>3개월차</td><td>2,371,542원</td><td>355,731원</td><td>2,727,273원</td><td>272,727원</td><td>3,000,000원</td></tr><tr class="total-row"><td>계약 합계</td><td>7,114,626원</td><td>1,067,193원</td><td>8,181,819원</td><td>818,181원</td><td>9,000,000원</td></tr></tbody></table></div>
+<ul><li>금액 기준: 순매체비는 월 청구 총액에 수수료와 VAT를 포함한다는 조건에서 산정했습니다. 수수료 = 월 순매체비 × 15%를 원 단위 반올림, VAT = (순매체비 + 수수료) × 10%를 원 단위 반올림합니다. 계약 총액은 1개월차·2개월차·3개월차 월 청구액의 합(3,000,000원 + 3,000,000원 + 3,000,000원 = 9,000,000원)으로 산정합니다.</li><li>포함 업무: 광고 전략 수립, 초기 계정·캠페인 세팅, 고객 제공 이미지 기반 월 4종 소재 기획, 주간 최적화, 주 1회 간단 리포트, 월 1회 정식 리포트.</li><li>제외 업무: 촬영, 상세페이지 제작, 추가 매체 집행은 포함하지 않습니다. 해당 제외 업무나 그 밖의 추가 업무·추가 비용이 필요할 때는 사전 견적을 제시하고 고객의 사전 승인을 받은 경우에만 진행·청구합니다. 승인 없는 추가 청구는 없습니다.</li><li>정산: 월 선집행 후 정산하며 익월 초 인보이스를 발행합니다.</li><li>기간: 3개월. 실제 계약 여부·승인 범위·과세·청구 조건은 계약 전에 양측이 별도 확인합니다.</li><li>집행 전 확인: 계정 접근 권한, 네이버·메타 타겟팅 및 전환 추적 기능, 제품 자료, 신규 구매 고객 이력 확인 가능 범위를 계약 후 첫 주에 확인합니다. 확인 전에는 해당 기능을 확정하거나 실적을 보장하지 않습니다.</li></ul>
+<h2 id="section-10">참고자료</h2>
+<ul><li>고객 브리프: sources/brief.md (../../sources/brief.md) (2026-10-11 기준)</li><li>회사 소개서: docs/about-company.md (../../docs/about-company.md) (2026-10-11 기준)</li><li>업무 사규: docs/company-rules.md (../../docs/company-rules.md) (2026-10-11 기준)</li><li>프로젝트 작업 지침: docs/project-instructions.md (../../docs/project-instructions.md) (2026-10-11 기준)</li><li>요구사항 정의서: artifacts/rules/requirements.md (../rules/requirements.md) (movepet-requirements-v1, 2026-10-11 기준)</li><li>제안·견적 양식: references/templates/proposal-quote-template.md (../../references/templates/proposal-quote-template.md) (2026-10-11 기준)</li></ul><footer class="footer-note">포커싱온 · 무브펫 광고 운영 제안 및 견적서</footer></article></div><script>(()=>{const root=document.documentElement,buttons=[...document.querySelectorAll('[data-theme-choice]')],applyTheme=t=>{const n=t==='light'?'light':'dark';root.dataset.theme=n;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===n)));};applyTheme('dark');buttons.forEach(b=>b.addEventListener('click',()=>applyTheme(b.dataset.themeChoice)));})();</script></body></html>

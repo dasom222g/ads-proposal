@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>무브펫 광고 제안·견적 교차 검토 보고서</title>
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#151815;
+      --paper:#1c201c;
+      --ink:#eceee9;
+      --muted:#a8b3aa;
+      --line:#33372f;
+      --strong:#6fbf94;
+      --panel:#222821;
+      --panel-2:#252d26;
+      --table-head:#293129;
+      --table-line:#3a4239;
+      --header-bg:#18362a;
+      --header-ink:#f2f7f3;
+      --header-muted:#b9c9c0;
+      --pass:#7fd3a3;
+      --pass-bg:#173226;
+      --pass-ink:#b8d9c2;
+      --pass-border:#2c5d42;
+      --warn:#e0b459;
+      --warn-bg:#332a15;
+      --warn-ink:#e4d2ac;
+      --warn-border:#6c5524;
+      --fail:#e29b91;
+      --fail-bg:#3a211e;
+      --fail-border:#6c3933;
+      --decision-border:#2c5d42;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px rgba(0,0,0,.35);
+    }
+    :root[data-theme="light"]{
+      color-scheme:light;
+      --bg:#f6f3ed;
+      --paper:#fffdf9;
+      --ink:#17201b;
+      --muted:#68746d;
+      --line:#e4ded3;
+      --strong:#264e3b;
+      --panel:#fff;
+      --panel-2:#f5f7f2;
+      --table-head:#edf2ee;
+      --table-line:#e4e9e5;
+      --header-bg:#18362a;
+      --header-ink:#f2f7f3;
+      --header-muted:#b9c9c0;
+      --pass:#16714a;
+      --pass-bg:#e8f4eb;
+      --pass-ink:#365845;
+      --pass-border:#b9dec6;
+      --warn:#946319;
+      --warn-bg:#fff3d8;
+      --warn-ink:#655238;
+      --warn-border:#e4c780;
+      --fail:#a7463a;
+      --fail-bg:#f8e8e5;
+      --fail-border:#e3b8b1;
+      --decision-border:#c4dfcc;
+      --shadow:0 2px 4px rgba(47,54,42,.04),0 16px 40px rgba(47,54,42,.08);
+    }
+    *{box-sizing:border-box}
+    html{color-scheme:dark}
+    body{margin:0;background:var(--bg);background-image:radial-gradient(circle at 8% 0%,rgba(82,130,102,.14),transparent 32%),radial-gradient(circle at 95% 10%,rgba(177,132,49,.10),transparent 30%);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.65}
+    :root[data-theme="light"] body{background-image:radial-gradient(circle at 8% 0%,rgba(231,242,236,.8),transparent 32%),radial-gradient(circle at 95% 10%,rgba(251,241,222,.7),transparent 30%)}
+    a{color:inherit}
+    .shell{width:min(1160px,calc(100% - 40px));margin:76px auto 88px}
+    .paper{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+    .theme-toggle{position:fixed;right:18px;top:14px;z-index:20;display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--paper) 92%,transparent);box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+    .theme-toggle button{min-width:58px;min-height:36px;border:0;border-radius:999px;padding:7px 12px;background:transparent;color:var(--muted);cursor:pointer;font:700 12px/1 "Pretendard","Apple SD Gothic Neo","Noto Sans KR",sans-serif;transition:background .2s ease,color .2s ease,transform .2s ease}
+    .theme-toggle button:hover{color:var(--ink);transform:translateY(-1px)}
+    .theme-toggle button:focus-visible{outline:3px solid color-mix(in srgb,var(--strong) 45%,transparent);outline-offset:2px}
+    .theme-toggle button[aria-pressed="true"]{background:var(--strong);color:#fff}
+    @media(max-width:760px){.theme-toggle{top:10px;right:10px}}
+    @media print{.theme-toggle{display:none}}
+    .switcher{display:flex;justify-content:space-between;gap:16px;padding:16px 40px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+    .switcher strong{color:var(--pass)}
+    .switcher a{font-weight:750;text-underline-offset:4px}
+    header{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.6fr);gap:34px;padding:48px 40px 36px;background:linear-gradient(135deg,#244d3a,var(--header-bg));color:var(--header-ink)}
+    header p{margin:0;color:var(--header-muted)}
+    .kicker{font-size:13px;font-weight:800;letter-spacing:.05em}
+    h1{max-width:760px;margin:12px 0 16px;font-size:clamp(30px,4.7vw,54px);line-height:1.13;letter-spacing:-.055em}
+    .verdict{align-self:end;border-top:1px solid rgba(255,255,255,.24);padding-top:22px}
+    .verdict b{display:block;color:var(--pass);font-size:32px;line-height:1}
+    .verdict span{display:block;margin-top:9px;color:var(--header-muted);font-size:14px}
+    main{padding:38px 40px 52px}
+    h2{margin:42px 0 14px;font-size:23px;letter-spacing:-.025em}
+    h2:first-child{margin-top:0}
+    .lead{max-width:76ch;margin:0;color:var(--muted)}
+    .roles{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin:24px 0 8px}
+    .role{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+    .role b{display:block;margin-bottom:5px;font-size:17px}
+    .role span{color:var(--muted);font-size:13px}
+    .arrow{color:var(--pass);font-weight:900;font-size:24px}
+    .rounds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+    .round{padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+    .round + .round{border-left:1px solid var(--line)}
+    .round strong{display:block;font-size:27px;line-height:1.1}
+    .round > span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
+    .round-flags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+    .round-flags b{display:inline-flex;align-items:center;min-height:24px;padding:3px 8px;border-radius:999px;font-size:11px;line-height:1.2}
+    .flag-fail{color:var(--fail);background:var(--fail-bg);border:1px solid var(--fail-border)}
+    .flag-aux{color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn-border)}
+    .flag-warn{color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn-border)}
+    .round-note{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
+    .round.pass{background:var(--pass-bg)}
+    .round.pass strong{color:var(--pass)}
+    .changes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .change{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+    .change code{font-size:12px;color:var(--fail);font-weight:800}
+    .change b{display:block;margin:7px 0 5px}
+    .change p{margin:0;color:var(--muted);font-size:13px}
+    .group{margin-top:18px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+    .group-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:16px 18px;background:var(--table-head);border-bottom:1px solid var(--line)}
+    .group-head b{font-size:17px}
+    .group-head span{color:var(--pass);font-size:13px;font-weight:800}
+    .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 18px 14px}
+    .check{display:grid;grid-template-columns:42px 24px 1fr;gap:8px;padding:11px 0;border-bottom:1px solid var(--table-line);font-size:13px}
+    .check:nth-last-child(-n+2){border-bottom:0}
+    .tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);font-weight:800}
+    .mark{color:var(--pass);font-weight:900}
+    .progress-board{margin-top:34px;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--panel-2);overflow-x:auto}
+    .progress-board h3{margin:0 0 6px;font-size:18px;letter-spacing:-.02em}
+    .progress-board .board-note{margin:0 0 16px;color:var(--muted);font-size:13px}
+    .progress-table{width:100%;min-width:620px;border-collapse:separate;border-spacing:0;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .progress-table th,.progress-table td{padding:10px 12px;border-bottom:1px solid var(--table-line);text-align:left;vertical-align:middle}
+    .progress-table th{background:var(--table-head);color:var(--muted);font-size:12px;font-weight:800;white-space:nowrap}
+    .progress-table th:not(:first-child),.progress-table td:not(:first-child){text-align:center}
+    .progress-table tr:last-child td{border-bottom:0}
+    .progress-table .item-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:800;color:var(--muted);width:54px}
+    .progress-table .item-name{font-weight:650;color:var(--ink);min-width:220px}
+    .progress-table .section-row td{padding:8px 12px;background:var(--warn-bg);color:var(--warn);font-size:11px;font-weight:850;letter-spacing:.04em;border-bottom:1px solid var(--line)}
+    .state{display:inline-flex;align-items:center;justify-content:center;min-width:52px;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:850;letter-spacing:.02em}
+    .state.pass{color:var(--pass);background:var(--pass-bg);border:1px solid var(--pass-border)}
+    .state.fail{color:var(--fail);background:var(--fail-bg);border:1px solid var(--fail-border)}
+    .state.fixed{color:var(--pass);background:var(--pass-bg);border:1px solid var(--pass-border)}
+    .state.fixed::before{content:"✓ ";}
+    .state.warn{color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn-border)}
+    .warnings{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .warning{padding:18px;background:var(--warn-bg);border:1px solid #e4c780;border-radius:16px}
+    .warning b{display:block;margin-bottom:6px;color:var(--warn)}
+    .warning p{margin:0;color:var(--warn-ink);font-size:13px}
+    .decision{margin-top:38px;padding:24px;background:var(--pass-bg);border:1px solid #c4dfcc;border-left:5px solid var(--pass);border-radius:16px}
+    .decision b{display:block;color:var(--pass);font-size:20px}
+    .decision p{margin:7px 0 0;color:var(--pass-ink)}
+    footer{padding:18px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+    @media(max-width:760px){
+      .shell{width:min(100% - 20px,1120px);margin-top:68px}
+      .switcher{padding:14px 18px;flex-direction:column;gap:4px}
+      header{grid-template-columns:1fr;padding:34px 20px 26px}
+      main{padding:28px 20px 38px}
+      .roles{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}
+      .rounds,.changes,.warnings{grid-template-columns:1fr}
+      .round + .round{border-left:0;border-top:1px solid var(--line)}
+      .checks{grid-template-columns:1fr}
+      .check:nth-last-child(2){border-bottom:1px solid var(--table-line)}
+      footer{padding:16px 20px}
+    }
+  .verdict b{color:#7fd3a3}.round{background:var(--panel);border-color:var(--line)}.reference-table-wrap{overflow-x:auto}.reference-table-wrap table{min-width:540px}.state{white-space:nowrap}
+    .facts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .facts li{display:grid;grid-template-columns:160px minmax(0,1fr);gap:16px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+    .facts li > span{color:var(--muted);font-size:13px;font-weight:800}
+    .facts li p{margin:0}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;overflow-wrap:anywhere}
+    .lead.spaced{margin:18px 0 12px}
+    .reference-table-wrap{margin-top:14px}
+    .progress-table td.cell-left{text-align:left}
+    .round-flags .state{min-width:0}
+    .warning{border-color:var(--warn-border)}
+    .decision{border-color:var(--decision-border);border-left-color:var(--pass)}
+    footer code{font-size:11px}
+    @media(max-width:760px){.facts li{grid-template-columns:1fr;gap:4px}}
+    h1{word-break:keep-all;overflow-wrap:normal}
+</style>
+</head>
+<body>
+<div class="theme-toggle" role="group" aria-label="테마 선택">
+  <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+  <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+</div>
+<div class="shell">
+  <article class="paper">
+    <nav class="switcher" aria-label="문서 이동">
+      <strong aria-current="page">교차 검토 보고서</strong>
+      <a href="proposal-quote.html">제안서 보기</a>
+    </nav>
+    <header>
+      <div>
+        <p class="kicker">교차 검토 보고서 · 무브펫 공식스토어</p>
+        <h1>무브펫 광고 제안·견적 교차 검토 보고서</h1>
+        <p>무브펫 서큘 자동급수기 Circle 2.0의 광고 제안·견적에 대한 평가 결과와 반려 후 수정 과정을 정리한 보고서입니다. 평가 판정과 예상 성과는 내부 검토 결과이며 실제 집행 성과나 계약 체결·집행 승인을 뜻하지 않습니다.</p>
+      </div>
+      <div class="verdict"><b>12 / 12</b><span>최종 판정: 통과(r2) · r1~r2 · 검산 99건 일치</span></div>
+    </header>
+    <main>
+      <h2 id="scope">검토 범위</h2>
+      <ul class="facts">
+        <li><span>검토 대상</span><p>포커싱온이 무브펫 공식스토어에 제출하는 「무브펫 서큘 자동급수기 Circle 2.0 광고 운영 제안 및 견적서」. 이번 작업의 첫 초안은 r1 초안(<code>artifacts/rounds/r1/draft.md</code>), 최종 초안은 r2 초안(<code>artifacts/rounds/r2/draft.md</code>), 최종 제안서는 <a href="proposal-quote.html">제안서</a>(<code>artifacts/final/proposal-quote.md</code>)입니다.</p></li>
+        <li><span>검토 역할</span><p>제안 작성 담당은 Codex 작성자 워커(gpt-5.6-luna, reasoning effort medium), 독립 평가 담당은 Claude Code 평가자 워커(이 보고서를 작성한 평가 세션)입니다. 작업 전달과 진행 확인은 Orca 코디네이터가 맡았습니다. 평가자는 초안을 직접 수정하지 않았고, 작성자에게는 체크리스트·전체 평가 대신 반려 항목의 수정 요청만 전달했습니다.</p></li>
+        <li><span>적용 기준</span><p>요구사항 정의서 movepet-requirements-v1(<code>artifacts/rules/requirements.md</code>), 평가 체크리스트 movepet-checklist-v1(<code>artifacts/rules/evaluation-checklist.md</code>, 2026-10-11 확정, C01~C12). 두 라운드 모두 같은 기준을 적용했고 기준을 완화하거나 바꾸지 않았습니다.</p></li>
+        <li><span>검토 라운드</span><p>r1~r2. 루프 한도는 r3였으며 r2에서 전 항목 통과로 반복을 종료해 r3는 만들지 않았습니다.</p></li>
+      </ul>
+      <div class="roles">
+        <div class="role"><b>작성자 · Codex</b><span>gpt-5.6-luna, reasoning effort medium · r1 초안 작성, r2 수정, 최종 제안서 변환</span></div>
+        <div class="arrow" aria-hidden="true">⇄</div>
+        <div class="role"><b>평가자 · Claude Code</b><span>C01~C12 전 항목 평가, 독립 검산, 수정 요청, 교차 검토 보고서</span></div>
+      </div>
+
+      <h2 id="rounds">라운드별 판정</h2>
+      <div class="rounds">
+        <div class="round"><strong>5 / 12</strong><span>r1 · 반려</span>
+          <div class="round-flags"><b class="flag-fail">C01</b><b class="flag-fail">C02</b><b class="flag-fail">C03</b><b class="flag-fail">C04</b><b class="flag-fail">C06</b><b class="flag-fail">C11</b><b class="flag-fail">C12</b></div>
+          <p class="round-note">평가 기록: r1 평가(<code>artifacts/rounds/r1/evaluation.md</code>), r1 수정 요청(<code>artifacts/rounds/r1/revision-request.md</code>)</p></div>
+        <div class="round pass"><strong>12 / 12</strong><span>r2 · 통과</span>
+          <div class="round-flags"><b class="state pass">반려 사유 없음</b></div>
+          <p class="round-note">평가 기록: r2 평가(<code>artifacts/rounds/r2/evaluation.md</code>)</p></div>
+        <div class="round"><strong>r3 미생성</strong><span>한도 r3 · 사용하지 않음</span>
+          <p class="round-note">r2에서 12/12 통과와 독립 검산 완료로 반복을 종료했습니다.</p></div>
+      </div>
+      <div class="reference-table-wrap">
+        <table class="progress-table">
+          <thead><tr><th scope="col">라운드</th><th scope="col">통과 수/전체 항목 수</th><th scope="col">종합 판정</th><th scope="col">주요 반려 사유</th><th scope="col">평가 기록</th></tr></thead>
+          <tbody>
+            <tr><td class="item-code">r1</td><td>5/12</td><td><span class="state fail">반려</span></td><td class="cell-left">C01 ROAS 차이 방향·충족 표시, C02 제외 이유, C03 잔액 배정 마지막 매체, C04 0 분모·입력 누락 처리와 중복·추적 누락 확인 방법, C06 계약 총액 산정 방법, C11 추가 비용 승인 조건, C12 기준 자료 버전·기준일</td><td class="cell-left">r1 평가, r1 수정 요청</td></tr>
+            <tr><td class="item-code">r2</td><td>12/12</td><td><span class="state pass">통과</span></td><td class="cell-left">없음</td><td class="cell-left">r2 평가</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead spaced">각 라운드의 독립 검산은 기존 스크립트 <code>artifacts/scripts/verify_quote_performance.py</code>를 수정 없이 재사용했고, 라운드마다 해당 초안의 표시값과 브리프 조건으로 검산 입력을 새로 만들었습니다.</p>
+      <div class="reference-table-wrap">
+        <table class="progress-table">
+          <thead><tr><th scope="col">라운드</th><th scope="col">검산 입력·결과</th><th scope="col">종료 코드</th><th scope="col">검사 수·결과</th><th scope="col">스크립트 밖 수동 대조</th></tr></thead>
+          <tbody>
+            <tr><td class="item-code">r1</td><td class="cell-left"><code>artifacts/rounds/r1/verification-input.json</code>, <code>artifacts/rounds/r1/verification-result.json</code></td><td>0</td><td>99건 모두 일치, 불일치·누락·계산 불가 0</td><td class="cell-left">1절 예상값은 6절과 일치, CPA 차이 일치, ROAS 차이 부호가 기준 방향과 반대(C01 반려 사유)</td></tr>
+            <tr><td class="item-code">r2</td><td class="cell-left"><code>artifacts/rounds/r2/verification-input.json</code>, <code>artifacts/rounds/r2/verification-result.json</code></td><td>0</td><td>99건 모두 일치, 불일치·누락·계산 불가 0</td><td class="cell-left">1절 예상값·차이와 6절 93행 누적 서술 일치</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lead spaced">r1의 반려 사유 7개는 모두 서술 누락이나 차이 표기 방향 문제였으며, 금액·배분·성과 수치 오류는 두 라운드 모두 없었습니다.</p>
+
+      <h2 id="fixes">반려 사항과 수정 결과</h2>
+      <div class="changes">
+        <div class="change"><code>C01</code><b>목표와의 차이 표기</b><p>r1: 1절 17행 ROAS 차이를 ‘-70.6%p, -29.9%p, +33.4%p, -22.4%p’(예상−목표 부호)로 적어 기준 방향(250%−예상)과 반대이고, 3개월차 ROAS 283.4%의 목표 충족 표시 없음. r2: 1절 16~17행을 ‘70.6%p 미달, 29.9%p 미달, 33.4%p 초과 달성, 22.4%p 미달’, CPA를 ‘6,739원 미달 … 1,239원 초과 달성’으로 바꾸고 20행에 차이 산정 방식 추가. 목표·예상값 유지. 재평가: Y - 통과, r2 평가 C01.</p></div>
+        <div class="change"><code>C02</code><b>제외 대상의 이유</b><p>r1: 2절 27행 제외 대상에 제외 이유 없음. r2: 2절 27행에 1·2차 고객과 물 관리·세척 고민에 직접 연결되지 않아 일반 가전 관심층을 제외한다는 이유 추가. 재평가: Y - 통과, r2 평가 C02.</p></div>
+        <div class="change"><code>C03</code><b>잔액 배정 매체</b><p>r1: 4절 39행이 ‘원 단위 잔액은 매체별 금액에 이미 반영’으로 배분 순서와 마지막 매체를 밝히지 않음. r2: 4절 39행에 네이버 금액을 먼저 정하고 잔액을 마지막 매체인 메타에 배정한다고 명시. 금액·비율 변경 없음. 재평가: Y - 통과, r2 평가 C03.</p></div>
+        <div class="change"><code>C04</code><b>실측 갱신·0 분모 처리</b><p>r1: 6절 66·68행에 입력 누락·0 분모 시 CPA·ROAS 표시 방법과 전환 중복·추적 누락 확인 방법 없음. r2: 6절 66행에 주문 내역·매체 전환 대조, 주문 식별자·전환 시각·귀속 확인, 총 주문·매출 대조 방법 추가. 68행에 ‘산출 불가’ 표시, 계획값 미대체, 원인·재수집 시점 보고 추가. 재평가: Y - 통과, r2 평가 C04.</p></div>
+        <div class="change"><code>C06</code><b>계약 총액 산정 방법</b><p>r1: 9절 125행에 계약 총액을 ‘월 청구액 3,000,000원 × 3개월’로 기재해 월별 청구액의 합으로 구했음을 밝히지 않음. r2: 9절 125행을 1·2·3개월차 월 청구액의 합(3,000,000원+3,000,000원+3,000,000원=9,000,000원)으로 수정. 재평가: Y - 통과, r2 평가 C06.</p></div>
+        <div class="change"><code>C11</code><b>추가 비용 승인 조건</b><p>r1: 9절 127행에 추가 업무·추가 비용의 승인 조건 없음. r2: 9절 127행에 사전 견적 제시와 고객 사전 승인 후에만 진행·청구한다는 조건 추가. 포함·제외 업무 범위 유지. 재평가: Y - 통과, r2 평가 C11.</p></div>
+        <div class="change"><code>C12</code><b>기준 자료 식별</b><p>r1: 표제 7행 기준 자료에 버전·기준일이 없고 요구사항 정의서가 빠짐. r2: 표제 7행·참고자료에 각 자료의 2026-10-11 기준일과 요구사항 정의서 movepet-requirements-v1 추가. 재평가: Y - 통과, r2 평가 C12. 작성자가 붙인 원문 외 식별자는 최종 변환에서 제거(아래 ‘최종 변환 범위’).</p></div>
+      </div>
+
+      <section class="progress-board" id="items">
+        <h3>항목별 판정 변화</h3>
+        <p class="board-note">r2에서는 r1 판정을 승계하지 않고 r1에서 Y였던 C05·C07·C08·C09·C10을 포함한 12개 항목을 모두 다시 검사했습니다. 초안 행 번호는 r2 초안 기준입니다.</p>
+        <div class="reference-table-wrap">
+          <table class="progress-table">
+            <thead><tr><th scope="col">검사 ID</th><th scope="col">검사 항목</th><th scope="col">r1</th><th scope="col">r2</th><th scope="col">최종 근거</th></tr></thead>
+            <tbody>
+              <tr><td class="item-code">C01</td><td class="item-name">목표와 예상 성과</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C01, 초안 1절 14~20행</td></tr>
+              <tr><td class="item-code">C02</td><td class="item-name">고객·매체 전략</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C02, 초안 2절 24~28행·3절 32~35행</td></tr>
+              <tr><td class="item-code">C03</td><td class="item-name">월별 매체 배분</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C03, 초안 4절 39~45행, 검산 배분 12건 일치</td></tr>
+              <tr><td class="item-code">C04</td><td class="item-name">성과 계산과 근거</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C04, 초안 6절 60~93행, 검산 성과 63건 일치</td></tr>
+              <tr><td class="item-code">C05</td><td class="item-name">견적·수수료·VAT</td><td><span class="state pass">Y - 통과</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C05, 초안 9절 116~125행, 순매체비 역산 유일해 2,371,542원</td></tr>
+              <tr><td class="item-code">C06</td><td class="item-name">예산·기간·계약 총액</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C06, 초안 9절 120~125·129행</td></tr>
+              <tr><td class="item-code">C07</td><td class="item-name">소재와 제품 근거</td><td><span class="state pass">Y - 통과</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C07, 초안 표제 5행·5절 49~56행</td></tr>
+              <tr><td class="item-code">C08</td><td class="item-name">광고 표현</td><td><span class="state pass">Y - 통과</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C08, 초안 전문</td></tr>
+              <tr><td class="item-code">C09</td><td class="item-name">운영 일정</td><td><span class="state pass">Y - 통과</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C09, 초안 7절 97~102행</td></tr>
+              <tr><td class="item-code">C10</td><td class="item-name">정기 보고</td><td><span class="state pass">Y - 통과</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C10, 초안 8절 106~110행</td></tr>
+              <tr><td class="item-code">C11</td><td class="item-name">업무 범위와 추가 비용</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C11, 초안 9절 126~127행</td></tr>
+              <tr><td class="item-code">C12</td><td class="item-name">정산과 승인 범위</td><td><span class="state fail">N - 반려</span></td><td><span class="state pass">Y - 통과</span></td><td class="cell-left">r2 평가 C12, 초안 표제 5~8행·9절 128~130행·참고자료</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <h2 id="compare">첫 초안과 최종본 비교</h2>
+      <div class="reference-table-wrap">
+        <table class="progress-table">
+          <thead><tr><th scope="col">항목</th><th scope="col">첫 초안</th><th scope="col">최종본</th><th scope="col">변경 이유</th></tr></thead>
+          <tbody>
+            <tr><td class="item-name">1절 목표와의 차이</td><td class="cell-left">r1 16~17행: CPA ‘+6,739원 … -1,239원’, ROAS ‘-70.6%p … +33.4%p’, 산정 방식 설명 없음</td><td class="cell-left">ROAS ‘70.6%p 미달, 29.9%p 미달, 33.4%p 초과 달성, 22.4%p 미달’, CPA ‘6,739원 미달 … 1,239원 초과 달성’, 산정 방식 명시</td><td class="cell-left">C01 반려 해소(r1 평가·수정 요청 C01)</td></tr>
+            <tr><td class="item-name">2절 제외 대상</td><td class="cell-left">r1 27행: 제외 대상만 기재</td><td class="cell-left">1·2차 고객과 물 관리·세척 고민에 연결되지 않는다는 제외 이유 추가</td><td class="cell-left">C02 반려 해소</td></tr>
+            <tr><td class="item-name">4절 배분 설명</td><td class="cell-left">r1 39행: ‘원 단위 잔액은 매체별 금액에 이미 반영’</td><td class="cell-left">네이버 먼저 산정, 잔액은 마지막 매체인 메타에 배정</td><td class="cell-left">C03 반려 해소</td></tr>
+            <tr><td class="item-name">6절 실측 갱신</td><td class="cell-left">r1 66·68행: 중복·추적 누락 ‘확인합니다’만 기재</td><td class="cell-left">주문 내역 대조 등 확인 방법, 입력 누락·0 분모 시 ‘산출 불가’ 표시와 계획값 미대체</td><td class="cell-left">C04 반려 해소</td></tr>
+            <tr><td class="item-name">9절 계약 총액 산정</td><td class="cell-left">r1 125행: ‘3,000,000원 × 3개월’</td><td class="cell-left">1·2·3개월차 월 청구액의 합 = 9,000,000원</td><td class="cell-left">C06 반려 해소</td></tr>
+            <tr><td class="item-name">9절 추가 비용</td><td class="cell-left">r1 127행: ‘승인 없는 추가 청구는 없습니다’만 기재</td><td class="cell-left">사전 견적 제시·고객 사전 승인 후에만 진행·청구</td><td class="cell-left">C11 반려 해소</td></tr>
+            <tr><td class="item-name">표제·참고자료 기준 자료</td><td class="cell-left">r1 7행: 링크만, 요구사항 정의서 없음</td><td class="cell-left">각 자료 링크와 2026-10-11 기준일, 요구사항 정의서 movepet-requirements-v1</td><td class="cell-left">C12 반려 해소. r2의 원문 외 식별자는 최종 변환에서 제거</td></tr>
+            <tr><td class="item-name">견적·배분·예상 성과 수치</td><td class="cell-left">월 순매체비 2,371,542원, 수수료 355,731원, VAT 272,727원, 월 3,000,000원·계약 9,000,000원, 배분 60/40·50/50·45/55%, 누적 CPA 17,133원·ROAS 227.6%</td><td class="cell-left">동일</td><td class="cell-left">고객 조건 유지. 두 라운드 검산 99건 모두 일치</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="conversion">최종 변환 범위</h2>
+      <p class="lead">최종 제안서는 통과한 r2 초안을 작성자가 <code>artifacts/final/proposal-quote.md</code>로 옮긴 문서입니다. 옮길 때 업무 내용(목표·고객·매체·배분·소재·성과·일정·보고·견적·범위·정산 문장과 수치)은 바꾸지 않고 출처 메타데이터만 아래와 같이 정리했습니다.</p>
+      <div class="warnings">
+        <div class="warning"><b>상대 링크 경로</b><p>상대 링크를 <code>artifacts/final/</code> 위치에 맞게 고쳤습니다.</p></div>
+        <div class="warning"><b>원문 외 식별자 제거</b><p>r2 표제·참고자료의 movepet-brief-v1, focusingon-about-v1, company-rules-v1, project-instructions-v1, proposal-quote-template-v1은 원문 파일에 없는 작성자 부여 표기여서 제거하고 2026-10-11 기준일만 남겼습니다. 원문에 실제로 있는 요구사항 정의서 버전 movepet-requirements-v1은 유지했습니다.</p></div>
+        <div class="warning"><b>판정 영향 없음</b><p>이 정리는 r2 평가 C12의 참고 사항을 반영한 것이며 판정 대상인 업무 내용을 바꾸지 않습니다. 최종 제안서와 r2 초안의 업무 내용 동일 여부는 아래 ‘최종 판정과 남은 확인 사항’에 대조 결과를 적었습니다.</p></div>
+      </div>
+
+      <h2 id="final">최종 판정과 남은 확인 사항</h2>
+      <ul class="facts">
+        <li><span>최종 판정·통과 수</span><p>통과, 12/12 Y(r2).</p></li>
+        <li><span>견적·성과 검산</span><p>r1·r2 모두 검산 스크립트 종료 코드 0, 99건 일치. 월 순매체비 2,371,542원·수수료 355,731원·공급가액 2,727,273원·VAT 272,727원·월 청구 3,000,000원, 계약 합계 9,000,000원. 3개월 누적 예상 CPA 17,133원·ROAS 227.6%로 계획값 기준 목표(CPA 15,000원 이하·ROAS 250% 이상)에 미달하며, 제안서는 목표를 유지하고 차이와 개선 조치를 적었습니다. 근거: r2 평가(<code>artifacts/rounds/r2/evaluation.md</code>) ‘견적·성과 독립 검산’.</p></li>
+        <li><span>최종 제안서</span><p><code>artifacts/final/proposal-quote.md</code>, HTML <a href="proposal-quote.html">제안서 보기</a>(<code>artifacts/final/proposal-quote.html</code>).</p></li>
+        <li><span>최종 제안서 대조</span><p><code>artifacts/rounds/r2/draft.md</code>와 <code>artifacts/final/proposal-quote.md</code>를 줄 단위로 비교했습니다. 차이는 표제 7행, 6절 62~63행, 참고자료 134~139행의 상대 링크 경로와 원문 외 식별자 제거, 파일 끝 빈 줄뿐이며 1~9절의 업무 문장·표·수치는 r2와 같습니다. 따라서 r2의 12/12 판정과 검산 결과가 최종 제안서 내용에 그대로 적용됩니다.</p></li>
+        <li><span>최종 HTML 확인</span><p>2026-10-11 코디네이터가 두 최종 HTML을 브라우저에서 열어 내부 링크 14개(제안서 목차 10개, 문서 간 링크 4개), 각 문서의 다크·라이트 전환, 화면 표시와 Markdown 내용 일치를 확인했습니다. 근거 문서로 이동하는 링크는 없으며, 상세 확인 기록은 r2 평가의 ‘최종 HTML 코디네이터 확인’에 남겼습니다.</p></li>
+      </ul>
+      <div class="reference-table-wrap">
+        <table class="progress-table">
+          <thead><tr><th scope="col">집행 전 확인 사항</th><th scope="col">시점</th><th scope="col">담당</th></tr></thead>
+          <tbody>
+            <tr><td class="item-name">실제 계약 체결 여부·승인 범위, 과세·청구·정산 조건</td><td>계약 전</td><td>포커싱온·무브펫 양측</td></tr>
+            <tr><td class="item-name">네이버·메타 계정 접근 권한, 타겟팅 기능, 구매 전환 이벤트·추적 가능 여부</td><td>계약 후 첫 주</td><td>포커싱온 광고 운영 담당, 무브펫 계정 권한 제공</td></tr>
+            <tr><td class="item-name">로고·제품 이미지·사용 장면 자료 수령</td><td>계약 후 첫 주</td><td>무브펫 제공, 포커싱온 소재 기획</td></tr>
+            <tr><td class="item-name">신규 구매 고객 구매 이력 확인 가능 범위</td><td>계약 후 첫 주</td><td>포커싱온 광고 운영 담당, 무브펫 스토어 데이터</td></tr>
+            <tr><td class="item-name">실측 CPC·CVR·전환 중복·추적 누락과 예상치 갱신</td><td>집행 1~2주 후</td><td>포커싱온 광고 운영 담당</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="decision"><b>최종 판정: 통과 · 12/12</b><p>r2 초안이 C01~C12 전 항목 Y이고 독립 검산 99건이 모두 일치했습니다. 이 판정은 제안·견적 문서의 내부 검토 결과이며, 예상 성과의 달성이나 계약 체결·집행 승인을 뜻하지 않습니다.</p></div>
+
+      <h2 id="references">참고자료</h2>
+      <ul class="facts">
+        <li><span>요구사항 정의서</span><p><code>artifacts/rules/requirements.md</code></p></li>
+        <li><span>평가 체크리스트</span><p><code>artifacts/rules/evaluation-checklist.md</code></p></li>
+        <li><span>라운드별 초안·평가·수정 요청</span><p>r1 초안 <code>artifacts/rounds/r1/draft.md</code>, r1 평가 <code>artifacts/rounds/r1/evaluation.md</code>, r1 수정 요청 <code>artifacts/rounds/r1/revision-request.md</code>, r2 초안 <code>artifacts/rounds/r2/draft.md</code>, r2 평가 <code>artifacts/rounds/r2/evaluation.md</code></p></li>
+        <li><span>검산 스크립트</span><p><code>artifacts/scripts/verify_quote_performance.py</code>, 형식 <code>artifacts/scripts/README.md</code></p></li>
+        <li><span>클라이언트 브리프</span><p><code>sources/brief.md</code></p></li>
+      </ul>
+    </main>
+    <footer>포커싱온 · 무브펫 광고 제안·견적 교차 검토 보고서 · 기준 movepet-checklist-v1 · 검토 라운드 r1~r2 · 내용 기준: <code>artifacts/final/cross-review-report.md</code></footer>
+  </article>
+</div>
+<script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+      const applyTheme = (theme) => {
+        const next = theme === 'light' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === next)));
+      };
+      applyTheme('dark');
+      buttons.forEach((button) => button.addEventListener('click', () => applyTheme(button.dataset.themeChoice)));
+    })();
+  </script>
+</body>
+</html>
